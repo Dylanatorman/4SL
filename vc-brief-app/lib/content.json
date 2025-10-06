@@ -1,0 +1,522 @@
+{
+  "crisis": {
+    "title": "A System Failing Its Students",
+    "subtitle": "Nearly 20% of high school students seriously considered suicide in the past year",
+    "overview": "The need for effective, data-driven risk management in schools is no longer theoretical—it's urgent.",
+    "keyStats": [
+      {
+        "label": "Students Considered Suicide",
+        "value": "20%",
+        "description": "High school students in the past year (CDC, 2023)",
+        "trend": "up",
+        "severity": "critical"
+      },
+      {
+        "label": "Leading Cause of Death",
+        "value": "2nd",
+        "description": "Among young people aged 10-24",
+        "severity": "critical"
+      },
+      {
+        "label": "School Shootings (2023)",
+        "value": "300+",
+        "description": "Up from fewer than 50 in 2013",
+        "trend": "up",
+        "severity": "critical"
+      },
+      {
+        "label": "Preventable",
+        "value": "Most",
+        "description": "Had identifiable precursors never formally assessed",
+        "severity": "warning"
+      }
+    ],
+    "commonThread": {
+      "title": "Every tragedy has one common thread: missed warning signs",
+      "description": "School staff often notice concerning behaviors but lack a centralized, compliant process to record and escalate them. Paper forms, isolated emails, and informal meetings result in critical data being lost or ignored.",
+      "result": "The result is preventable violence, preventable suicides, and avoidable liability."
+    }
+  },
+  "perfectStorm": {
+    "title": "Three Forces Converging",
+    "subtitle": "Creating a new market necessity: digital compliance infrastructure for school safety",
+    "forces": [
+      {
+        "id": "mental-health",
+        "title": "Youth Mental Health Crisis",
+        "subtitle": "Of Unprecedented Scale",
+        "description": "A mental health crisis of unprecedented scale is overwhelming school systems",
+        "keyPoints": [
+          "Nearly 20% of high school students seriously considered suicide in the past year (CDC, 2023)",
+          "Suicide is the second leading cause of death among young people aged 10–24",
+          "Youth suicide rate increased 39% from 2011 to 2021 (CDC NVSS)",
+          "School shootings have surged from fewer than 50 incidents in 2013 to more than 300 in 2023"
+        ]
+      },
+      {
+        "id": "legal-regulatory",
+        "title": "Legal & Regulatory Demands",
+        "subtitle": "Accelerating Nationwide",
+        "description": "Schools across the U.S. are being legally compelled to implement behavioral threat assessment programs",
+        "keyPoints": [
+          "11 states now mandate threat assessment teams and programs",
+          "Virginia led in 2013, followed by Florida post-Parkland (2018)",
+          "California SB 906 (2023): Immediate reporting of homicidal threats required",
+          "California SB 1241 (Pending): Universal teams by July 2027",
+          "U.S. Dept of Homeland Security & Secret Service formally recommend programs"
+        ],
+        "timeline": "Virginia (2013) → Florida (2018) → 9 more states (2019-2023)"
+      },
+      {
+        "id": "financial-liability",
+        "title": "Escalating Financial Liability",
+        "subtitle": "For Failure to Act",
+        "description": "Legal precedent is setting a clear message: failure to identify and document threats can expose schools to crippling liability",
+        "keyPoints": [
+          "Virginia Tech (2007): $11 million settlement",
+          "Marysville, WA (2014): $18 million payout",
+          "Parkland, FL (2018): $25M (school) + $127.5M (federal) = $152.5M total",
+          "Cleveland v. Taft Union (CA, 2022): $2M for failure to document warning signs"
+        ],
+        "trend": "Lawsuit payouts against districts for safety negligence have escalated dramatically"
+      }
+    ],
+    "convergence": "The convergence of these forces is creating a new market necessity: digital compliance infrastructure for school safety."
+  },
+  "solution": {
+    "title": "From Compliance Burden to Compliance Backbone",
+    "subtitle": "4StudentLives transforms fragmented compliance obligations into a unified process",
+    "mission": "To become the national backbone of school safety and accountability. In an era where one missed signal can cost lives and millions in legal damages, 4StudentLives provides a structured, transparent, and defensible process that ensures no student concern goes unseen and no district is left unprotected.",
+    "overview": "4StudentLives is a digital suicide risk and behavioral threat assessment management platform engineered for K–12 schools. It replaces the disjointed, paper-based systems currently used to track student threats and suicide risks—systems that routinely fail to identify patterns of danger, fail to meet state mandates, and leave school districts legally and morally exposed.",
+    "transformation": "4SL transforms this outdated process into a single, compliant digital workflow where multidisciplinary teams can identify, evaluate, document, and manage high-risk students through every stage of intervention.",
+    "coreCapabilities": [
+      {
+        "category": "Addressing the Mental Health Crisis",
+        "features": [
+          {
+            "title": "Digitized Suicide Risk Assessments",
+            "description": "Evidence-based protocols ensure no student concern falls through the cracks"
+          },
+          {
+            "title": "Pattern Recognition",
+            "description": "Identify concerning behaviors across multiple incidents and time periods"
+          },
+          {
+            "title": "Comprehensive Case Management",
+            "description": "Track students from initial concern through intervention and resolution"
+          }
+        ]
+      },
+      {
+        "category": "Meeting Legal Mandates",
+        "features": [
+          {
+            "title": "State-Compliant Templates",
+            "description": "Standardized assessments consistent with CSTAG, SB 906, and other state requirements"
+          },
+          {
+            "title": "Multidisciplinary Coordination",
+            "description": "Seamless collaboration between administrators, counselors, psychologists, and law enforcement as required by law"
+          },
+          {
+            "title": "Training Integration",
+            "description": "Built-in support for documenting staff training and certification, meeting statutory preparedness requirements"
+          },
+          {
+            "title": "Anonymous Reporting",
+            "description": "24/7 reporting system ready for California SB 1241 and similar mandates"
+          }
+        ]
+      },
+      {
+        "category": "Eliminating Liability",
+        "features": [
+          {
+            "title": "Comprehensive Documentation",
+            "description": "Every step is logged and time-stamped, creating a defensible record for audits, investigations, or legal review"
+          },
+          {
+            "title": "Accountability Dashboard",
+            "description": "Leadership can view open cases, response times, and follow-up outcomes to verify compliance and identify gaps"
+          },
+          {
+            "title": "Audit-Ready Records",
+            "description": "Proves due diligence in real time—a capability paper systems cannot meet"
+          }
+        ]
+      }
+    ],
+    "whatWeReplace": [
+      { "old": "Paper forms", "new": "Digital workflows" },
+      { "old": "Isolated emails", "new": "Centralized platform" },
+      { "old": "Informal meetings", "new": "Documented collaboration" },
+      { "old": "Lost data", "new": "Complete audit trails" },
+      { "old": "Reactive chaos", "new": "Proactive system" }
+    ],
+    "quote": "A standardized platform ensures no concern falls through the cracks and that the school meets mandates (like training staff to recognize warning signs and having clear protocols to respond)."
+  },
+  "mandates": {
+    "title": "The Mandate Landscape",
+    "subtitle": "From Optional to Obligatory",
+    "overview": "Schools across the U.S. are being legally compelled to implement behavioral threat assessment programs—and to document their actions in ways that can withstand public and legal scrutiny.",
+    "states": [
+      {
+        "state": "California",
+        "status": "Emerging Standard",
+        "legislation": [
+          {
+            "bill": "SB 906",
+            "year": 2022,
+            "enacted": 2023,
+            "summary": "Requires school officials to report any homicidal threat to law enforcement, which must immediately conduct a threat assessment",
+            "requirements": [
+              "Mandatory reporting of homicidal threats (grades 6-12)",
+              "Immediate law enforcement involvement",
+              "Documented procedures required",
+              "Multidisciplinary coordination expected"
+            ],
+            "url": "https://leginfo.legislature.ca.gov"
+          },
+          {
+            "bill": "SB 1241 (SAFE Act)",
+            "year": 2023,
+            "status": "Pending",
+            "deadline": "July 2027",
+            "summary": "Would mandate every middle and high school to establish a multidisciplinary threat assessment team",
+            "requirements": [
+              "Threat assessment teams at all middle/high schools",
+              "Certified training for team members",
+              "Digital record of assessments and outcomes",
+              "24/7 anonymous reporting line",
+              "Mirrors structure 4SL already provides"
+            ],
+            "url": "https://leginfo.legislature.ca.gov"
+          }
+        ]
+      },
+      {
+        "state": "Florida",
+        "statute": "Fla. Admin. Code 6A-1.0018",
+        "year": 2018,
+        "act": "Marjory Stoneman Douglas Public Safety Act",
+        "requirements": [
+          "Every school must establish a threat assessment team",
+          "Use of state-approved threat assessment tool (CSTAG)",
+          "Model documentation provided by FL Dept of Education",
+          "Documentation parallels 4SL's digital workflow"
+        ],
+        "url": "https://www.fldoe.org/safe-schools"
+      },
+      {
+        "state": "Texas",
+        "statute": "Educ. Code §37.115",
+        "year": 2019,
+        "context": "Following Santa Fe shooting",
+        "requirements": [
+          "Behavioral threat assessment teams for all public schools",
+          "Mandatory reporting to TEA Sentinel system"
+        ],
+        "url": "https://statutes.capitol.texas.gov"
+      },
+      {
+        "state": "Virginia",
+        "statute": "Va. Code §22.1-79.4",
+        "year": 2013,
+        "significance": "First state to mandate K-12 threat assessment teams",
+        "requirements": [
+          "Threat assessment teams at every school",
+          "Division-level oversight",
+          "Model policy implementation"
+        ],
+        "url": "https://law.lis.virginia.gov"
+      },
+      {
+        "state": "Illinois",
+        "statute": "105 ILCS 128/45",
+        "requirements": ["Threat assessment procedures", "Team composition standards", "Timeline requirements"],
+        "url": "https://www.ilga.gov"
+      },
+      {
+        "state": "Kentucky",
+        "statute": "KRS 158.4412",
+        "requirements": ["District coordinator", "Threat assessment team at each school"],
+        "url": "https://www.lrc.ky.gov"
+      },
+      {
+        "state": "Maryland",
+        "statute": "Educ. §7-1507",
+        "act": "Safe to Learn Act",
+        "requirements": ["Model policy", "LEA adoption required"],
+        "url": "https://mgaleg.maryland.gov"
+      },
+      {
+        "state": "Ohio",
+        "statute": "R.C. §3313.669",
+        "requirements": ["Teams for grades 6-12", "Training via §5502.263"],
+        "url": "https://codes.ohio.gov"
+      },
+      {
+        "state": "Pennsylvania",
+        "statute": "24 P.S. §13-1302-E et seq.",
+        "act": "Article XIII-E",
+        "requirements": ["Threat assessment programs"],
+        "url": "https://www.legis.state.pa.us"
+      },
+      {
+        "state": "Rhode Island",
+        "statute": "R.I. Gen. Laws §16-21-23.2",
+        "requirements": ["Teams and oversight committee"],
+        "url": "https://webserver.rilegislature.gov"
+      },
+      {
+        "state": "Vermont",
+        "statute": "16 V.S.A. §1485",
+        "requirements": ["Behavioral threat assessment teams", "Statewide guidance"],
+        "url": "https://legislature.vermont.gov"
+      },
+      {
+        "state": "Washington",
+        "statute": "RCW 28A.320.123",
+        "requirements": ["School-based threat assessment", "OSPI implementation"],
+        "url": "https://app.leg.wa.gov"
+      }
+    ],
+    "federalGuidance": [
+      {
+        "agency": "U.S. Department of Homeland Security",
+        "recommendation": "All districts implement behavioral threat assessment and management programs",
+        "url": "https://www.dhs.gov"
+      },
+      {
+        "agency": "U.S. Secret Service / NTAC",
+        "model": "National Threat Assessment Center Model",
+        "recommendation": "Formalized threat assessment consistent with state models",
+        "url": "https://www.secretservice.gov/reports"
+      }
+    ],
+    "trendline": "This is not a passing trend—it is the future baseline for compliance. Digital threat assessment platforms will soon be as essential to schools as student information systems."
+  },
+  "california": {
+    "title": "California Momentum",
+    "subtitle": "From Discovery to Statewide Partnership",
+    "overview": "Over the past 12 months, 4StudentLives has engaged with 78% of California counties, conducting over 100 sessions with superintendents and education leaders across the state.",
+    "statsAtAGlance": [
+      {
+        "label": "Counties Engaged",
+        "value": "45/58",
+        "description": "≈78% of CA counties"
+      },
+      {
+        "label": "Districts Represented",
+        "value": "550+",
+        "description": "Across the state"
+      },
+      {
+        "label": "Unique Respondents",
+        "value": "480-520",
+        "description": "Leaders & practitioners"
+      },
+      {
+        "label": "Sessions & Briefings",
+        "value": "100+",
+        "description": "70+ interviews, 30+ demos"
+      }
+    ],
+    "mandateReadiness": [
+      {
+        "metric": "Have suicide-prevention policy aligned to state law",
+        "percentage": 92,
+        "status": "compliant"
+      },
+      {
+        "metric": "Have formal threat-assessment team/process",
+        "percentage": 78,
+        "status": "compliant"
+      },
+      {
+        "metric": "Use standardized, districtwide templates",
+        "percentage": 21,
+        "status": "gap"
+      },
+      {
+        "metric": "Would like to implement a standardized, districtwide template",
+        "percentage": 97,
+        "status": "opportunity"
+      },
+      {
+        "metric": "Can produce complete audit trail within 24 hours",
+        "percentage": 26,
+        "status": "gap"
+      }
+    ],
+    "currentState": [
+      {
+        "finding": "Still using paper/PDF/email/spreadsheets for risk and threat assessment cases",
+        "percentage": 94,
+        "impact": "high"
+      },
+      {
+        "finding": "List lack of a centralized system as a top 3 operational risk",
+        "percentage": 72,
+        "impact": "high"
+      },
+      {
+        "finding": "Expressed desire for a digital centralized system",
+        "percentage": 92,
+        "impact": "opportunity"
+      }
+    ],
+    "partnershipLetter": {
+      "source": "California County Superintendents Board of Directors",
+      "date": "June 2025",
+      "subject": "Official Partnership Renewal for 2025–26 Fiscal Year",
+      "content": "I'm pleased to share that the California County Superintendents Board of Directors has officially voted to renew our business partnership with 4StudentLives for the 2025–26 fiscal year. This renewal is more than a continuation—it's a clear affirmation of the strong impression you've made as CEO and the tremendous value 4StudentLives continues to bring to the field.\n\nThroughout this past year, your leadership has stood out. County superintendents and LEAs alike have expressed genuine enthusiasm about working with you and your team. Many have noted how your deep understanding of the challenges schools face—particularly when it comes to student safety and mental health—has made you a trusted and respected partner.\n\nThe desire for a secure, online platform to conduct threat assessments has only grown. LEAs are increasingly seeking tools that not only meet compliance requirements but also provide a streamlined, proactive approach to supporting school safety. 4StudentLives is clearly answering that call.\n\nSeveral county superintendents have expressed eagerness to engage with 4SL in the development of a school-centered platform—one that reflects a deep understanding of the practical realities educators face. The alignment between the missions of our two organizations has never been more evident. Together, we share a deep commitment to supporting student well-being as foundational to their academic success and life outcomes.\n\nWith your continued leadership, we are confident that this renewed partnership will open new pathways for LEAs across the state to access the systems they need to keep students safe and supported. We look forward to working with you to expand access to this vital resource and to building on the strong momentum we've created together."
+    },
+    "theOpportunity": "97% want standardized templates, only 21% have them. 92% want a digital centralized system, 94% are still using paper. This is our moment."
+  },
+  "competition": {
+    "title": "The Compliance Gap",
+    "subtitle": "Why existing solutions fall short",
+    "positioning": "4StudentLives is the only platform purpose-built for K-12 threat assessment compliance. While competitors focus on adjacent functions—anonymous reporting, broad safety, or emergency response—we provide the clinical-grade tools and compliance infrastructure that state mandates actually require.",
+    "theGap": "Adjacent functions (reporting, emergency response) ≠ Compliance backbone for threat assessment mandates",
+    "competitors": [
+      {
+        "name": "Navigate360",
+        "focus": "Broad school safety suite",
+        "strengths": [
+          "Market leader with large install base",
+          "Comprehensive product suite including visitor management and emergency response",
+          "Strong sales and marketing engine"
+        ],
+        "weaknesses": [
+          "Threat assessment is an add-on, not core focus",
+          "Limited customization for state-mandated assessment frameworks",
+          "Complex, expensive implementation",
+          "Less intuitive UX for clinical workflows"
+        ],
+        "gap": "Does not provide full alignment with state threat assessment mandates"
+      },
+      {
+        "name": "STOPit Solutions",
+        "focus": "Anonymous reporting and tip management",
+        "strengths": [
+          "Strong anonymous reporting features",
+          "Digital tip management",
+          "Mobile-first approach"
+        ],
+        "weaknesses": [
+          "No structured assessment workflow integration",
+          "Lacks case management for threat assessment",
+          "Does not meet multidisciplinary team coordination requirements",
+          "No compliance documentation features"
+        ],
+        "gap": "Focuses on reporting only, no assessment workflow"
+      },
+      {
+        "name": "Raptor Technologies",
+        "focus": "Visitor and emergency management",
+        "strengths": [
+          "Strong visitor management platform",
+          "Emergency response features",
+          "Good market presence"
+        ],
+        "weaknesses": [
+          "Partial behavioral threat modules only",
+          "Not designed for full assessment lifecycle",
+          "Limited documentation and compliance features"
+        ],
+        "gap": "Provides visitor/emergency management, not threat assessment compliance"
+      }
+    ],
+    "ourMoat": [
+      "First-mover in compliance-specific threat assessment platform",
+      "Only solution designed specifically to meet state mandate requirements",
+      "Deep understanding of clinical threat assessment workflows",
+      "Built by people who understand the assessment process, not just safety tech",
+      "Fast iteration capability to meet evolving state requirements",
+      "State-specific configuration without custom rebuilds",
+      "Execution speed: we ship improvements quickly as new mandates emerge"
+    ],
+    "quote": "4StudentLives fills the compliance gap. It is the first solution designed specifically to help schools comply with state law, standardize documentation, and prevent liability through end-to-end digital case management."
+  },
+  "business": {
+    "title": "Market Opportunity",
+    "subtitle": "From Optional to Obligatory",
+    "marketSize": {
+      "totalSchools": 130000,
+      "description": "130,000+ U.S. schools",
+      "opportunity": "$5B+",
+      "opportunityDescription": "Compliance and safety technology market"
+    },
+    "mandatedMarket": {
+      "states": 11,
+      "estimatedSchools": 50000,
+      "trend": "Growing rapidly as more states adopt mandates"
+    },
+    "traction": {
+      "districts": 6,
+      "studentsServed": "Thousands",
+      "assessmentsCompleted": "Hundreds",
+      "pipeline": "Active negotiations driven by compliance deadlines"
+    },
+    "revenueModel": {
+      "type": "SaaS subscription",
+      "pricing": "Per district or campus, scaled by student population",
+      "scalability": "Built for state-level enterprise deployment",
+      "capability": "Capable of serving entire departments of education"
+    },
+    "retention": {
+      "driver": "Compliance requirements don't expire",
+      "expectation": "High retention as mandates remain in force"
+    },
+    "whyNow": [
+      "California SB 1241 deadline: July 2027",
+      "Other state mandates rolling out",
+      "Legal precedent accelerating liability concerns",
+      "Crisis worsening (data demonstrates urgency)",
+      "Market shift from 'optional' to 'obligatory'"
+    ],
+    "outlook": "Digital threat assessment platforms will soon be as essential to schools as student information systems. The convergence of student mental health crises, government mandates, and multimillion-dollar legal exposure ensures that adoption is not a question of if but when."
+  },
+  "team": {
+    "description": "We are a flexible, fast-moving, hard-working team that ships improvements quickly into the live platform as new district or state requirements emerge.",
+    "executionSpeed": "Our engineering and implementation cadence allows rapid configuration to state-specific workflows and policy changes without custom rebuilds.",
+    "coreStrength": "Execution speed is core to meeting the state mandates and beating competitors to market."
+  },
+  "funding": {
+    "vision": "To become the national backbone of school safety and accountability",
+    "mission": "To ensure no missed signal costs lives, no student concern goes unseen, and no district is left unprotected",
+    "opportunity": {
+      "current": "11 states with mandates now",
+      "trend": "More states following documented trend",
+      "future": "Every district will need compliance infrastructure",
+      "advantage": "First-mover advantage in compliance-specific platform"
+    },
+    "useOfFunds": [
+      {
+        "category": "State-Specific Compliance Engineering",
+        "description": "Rapid configuration for new state mandates and requirements",
+        "percentage": 30
+      },
+      {
+        "category": "Sales & Partnerships in Mandate States",
+        "description": "Target the 11 mandate states plus California pre-2027 deadline",
+        "percentage": 35
+      },
+      {
+        "category": "Platform Scalability",
+        "description": "Enterprise-ready infrastructure for state-level deployment",
+        "percentage": 20
+      },
+      {
+        "category": "Customer Success & Retention",
+        "description": "Ensure high retention and expansion within districts",
+        "percentage": 15
+      }
+    ],
+    "moralAndFinancial": {
+      "moral": "Save lives by ensuring no warning sign is missed",
+      "financial": "Help districts avoid millions in liability exposure"
+    }
+  }
+}
