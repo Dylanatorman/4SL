@@ -1,0 +1,10 @@
+{
+  "name": "4sl-vc-brief-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "cd vc-brief-app && npm run dev",
+    "build": "cd vc-brief-app && npm install && npm run build",
+    "start": "cd vc-brief-app && npm start"
+  }
+}
