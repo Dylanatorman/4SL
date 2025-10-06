@@ -1794,8 +1794,6 @@ const TheAsk: React.FC = () => {
   );
 };
 
-import { BusinessModel, Traction, LegalCompliance, Competition, FundingAsk } from "@/components/vc-brief/TabSections";
-
 export default function VCBriefPage() {
   return (
     <div className="min-h-screen bg-white">
