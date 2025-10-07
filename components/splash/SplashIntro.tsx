@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, animate } from 'framer-motion';
 import Image from 'next/image';
 import StarfieldBackground from './StarfieldBackground';
 
@@ -18,6 +18,12 @@ export default function SplashIntro({ children }: SplashIntroProps) {
     return true; // Show splash by default on server-side
   });
   const [isExiting, setIsExiting] = useState(false);
+  const [maskRadius, setMaskRadius] = useState(0); // 0-100 for expanding circle
+
+  // Check for reduced motion preference
+  const prefersReducedMotion = typeof window !== 'undefined'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    : false;
 
   useEffect(() => {
     // Only set up timer if splash should be shown
@@ -35,11 +41,24 @@ export default function SplashIntro({ children }: SplashIntroProps) {
     setIsExiting(true);
     sessionStorage.setItem('4sl_intro_seen', 'true');
 
-    // Allow radial reveal animation to complete before unmounting
+    // Allow radial reveal animation to complete before unmounting (increased to 4s)
     setTimeout(() => {
       setShowSplash(false);
-    }, 2500);
+    }, 4000);
   };
+
+  // Animate mask radius when exiting
+  useEffect(() => {
+    if (isExiting) {
+      const controls = animate(0, 100, {
+        duration: prefersReducedMotion ? 0.3 : 3.5,
+        ease: [0.16, 1, 0.3, 1], // Smoother easing curve
+        onUpdate: (value) => setMaskRadius(value),
+      });
+
+      return () => controls.stop();
+    }
+  }, [isExiting, prefersReducedMotion]);
 
   const handleSkip = () => {
     handleExit();
@@ -57,11 +76,6 @@ export default function SplashIntro({ children }: SplashIntroProps) {
     window.addEventListener('keydown', handleEscape);
     return () => window.removeEventListener('keydown', handleEscape);
   }, [showSplash]);
-
-  // Check for reduced motion preference
-  const prefersReducedMotion = typeof window !== 'undefined'
-    ? window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    : false;
 
   if (!showSplash) {
     return <>{children}</>;
@@ -81,23 +95,18 @@ export default function SplashIntro({ children }: SplashIntroProps) {
             key="splash"
             className="fixed inset-0 z-[9999] flex items-center justify-center cursor-pointer"
             style={{
-              background: 'linear-gradient(to bottom, #1A3859 0%, #1A3859 50%, rgba(23, 29, 26, 1) 50%, rgba(23, 29, 26, 1) 100%)'
+              background: 'linear-gradient(to bottom, #1A3859 0%, #1A3859 50%, rgba(23, 29, 26, 1) 50%, rgba(23, 29, 26, 1) 100%)',
+              WebkitMaskImage: isExiting
+                ? `radial-gradient(circle at 50% 50%, transparent ${maskRadius}%, black ${maskRadius}%, black 100%)`
+                : 'none',
+              maskImage: isExiting
+                ? `radial-gradient(circle at 50% 50%, transparent ${maskRadius}%, black ${maskRadius}%, black 100%)`
+                : 'none',
             }}
             onClick={handleSkip}
             initial={{ opacity: 1 }}
-            exit={
-              prefersReducedMotion
-                ? { opacity: 0 }
-                : {
-                    WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)',
-                    maskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)'
-                  }
-            }
-            transition={
-              prefersReducedMotion
-                ? { duration: 0.3 }
-                : { duration: 2.5, ease: [0.22, 1, 0.36, 1] }
-            }
+            exit={{ opacity: prefersReducedMotion ? 0 : 1 }}
+            transition={{ duration: prefersReducedMotion ? 0.3 : 0 }}
           >
             {/* Starfield Background - Bottom Half Only */}
             {!prefersReducedMotion && <StarfieldBackground />}
