@@ -32,8 +32,6 @@ export const suicideData: SuicideDataPoint[] = [
 // Source: Education Week Tracker
 // https://www.edweek.org/leadership/school-shootings-this-year-how-many-and-where/2025/01
 export const shootingData: ShootingDataPoint[] = [
-  { year: 2018, incidents: 24 },
-  { year: 2019, incidents: 24 },
   { year: 2020, incidents: 10 },
   { year: 2021, incidents: 35 },
   { year: 2022, incidents: 51 },

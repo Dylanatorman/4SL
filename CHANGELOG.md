@@ -6,6 +6,136 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.5.4] - 2025-10-06
+
+### Changed - Traction Data & Vision Updates
+
+**Tab 7: Market Opportunity**
+- **Current Traction Metrics Updated:**
+  - Districts: Changed from 6 to **17**
+  - Students Served: Changed from "Thousands" to **36,800**
+  - Assessments Completed: Replaced with **States Served: 3**
+  - More accurate representation of current market penetration
+
+**Tab 8: The Vision** (formerly "The Ask")
+- **Tab Renamed:**
+  - Changed from "The Ask" to "The Vision" for stronger messaging
+
+- **Use of Funds Restructured (4 → 3 categories):**
+  - **Product Development: 40%**
+    - Description: "Compliance, platform scalability, and AI integration"
+    - Consolidated State-Specific Compliance Engineering and Platform Scalability
+  - **Sales and Marketing Efforts: 40%**
+    - Description: "Target mandate states, build partnerships, and accelerate market penetration"
+    - Increased from 35% to reflect go-to-market priority
+  - **Customer Success and Retention: 20%**
+    - Description: "Ensure adoption, maximize retention, and drive district expansion"
+    - Increased from 15% to emphasize retention focus
+
+### Files Modified
+- `/app/page.tsx` - Tab 8 title rename
+- `/lib/content.json` - Traction metrics, Use of Funds categories
+
+---
+
+## [0.5.3] - 2025-10-06
+
+### Changed - Data & Visual Updates
+
+**Tab 5: Discovery**
+- **Progress Bar Color System:**
+  - Implemented percentage-based color coding for "Mandate Readiness & Gaps" and "Current State of Case Management" sections
+  - 90s percentages (90-99%) → Green (indicates compliance/achievement)
+  - 70s percentages (70-79%) → Gold (#FCC169) (indicates moderate performance)
+  - 20s percentages (20-29%) → Red (indicates gaps/opportunities)
+  - Enhanced visual clarity showing compliance gaps and opportunities
+
+**Tab 6: Why We Win**
+- **Quote Formatting Fixed:**
+  - Added closing quotation mark (&rdquo;) to pull quote
+  - Quote now properly formatted with both opening and closing marks
+
+**Tab 7: Market Opportunity** (formerly "Business")
+- **Tab Title Renamed:**
+  - Changed from "Business" to "Market Opportunity" for clearer messaging
+- **Market Size Data Updated:**
+  - Changed total market from "130,000+ U.S. schools" to "13,500 districts"
+  - Updated TAM from "$5B+" to "$200M" (compliance and safety technology market)
+  - More accurate representation of addressable market based on district-level sales model
+
+**Sources & Citations**
+- **NCES Citation Enhanced:**
+  - Updated with specific URL: https://nces.ed.gov/programs/digest/d23/tables/dt23_214.10.asp
+  - Added specific data point: "Approximately 13,500 public school districts in the United States"
+  - Provides authoritative source for district count
+
+### Files Modified
+- `/app/page.tsx` - Discovery progress bars, Why We Win quote, tab title
+- `/lib/content.json` - Market size data (districts and TAM)
+
+---
+
+## [0.5.2] - 2025-10-06
+
+### Changed - UI/UX Updates
+
+**Tab 3: The Solution**
+- **"What We Replace" Tiles Redesign:**
+  - Changed tile backgrounds from white with border to gold (#FCC169) with navy text (#05092B)
+  - Added shadow effects with hover states for consistency with other gold cards
+  - Updated arrow icons to navy color to match text
+
+**Tab 4: The Mandate Landscape**
+- **"Establishing the Standard" Card:**
+  - Renamed from "The Future Baseline" to "Establishing the Standard"
+  - Moved to appear directly under the hero section (was at bottom before sources)
+  - Changed background to gold (#FCC169) with navy text
+  - Added shadow effects with hover state
+- **Terminology Updates:**
+  - Changed "digital threat assessment" to "digital suicide risk and behavioral threat assessment platforms" (2 locations)
+  - Updated text from "the future baseline for compliance" to "the emerging standard"
+
+**Tab 5: Discovery**
+- **Stats at a Glance Update:**
+  - Changed "Districts Represented" description from "Across the state" to "by Engaged Counties"
+
+**Tab 6: Why We Win**
+- **Content Simplification:**
+  - Removed "The Gap" explanation card ("Adjacent functions (reporting, emergency response) ≠ Compliance backbone for threat assessment mandates")
+
+### Files Modified
+- `/app/page.tsx` - Updated Solution, Mandates, and Why We Win tabs
+- `/lib/content.json` - Updated mandate terminology and Discovery stats
+
+---
+
+## [0.5.1] - 2025-10-06
+
+### Changed - Content Updates
+
+**Tab 1: The Crisis**
+- **"Preventable" Stat Card Updated:**
+  - Changed value from "Most" to "94%"
+  - Updated description from "Had identifiable precursors never formally assessed" to "Of attackers had identifiable precursors never formally assessed"
+- **School Shootings Graph:**
+  - Updated data range to show only 2020-2024 (removed 2018-2019 data)
+  - Now displays 5 years instead of 7 for more focused recent trends
+
+**Tab 3: The Solution**
+- **Core Capabilities Enhancement:**
+  - Updated "Digitized Suicide Risk Assessments" to "Digitized Suicide Risk and Behavioral Threat Assessments"
+- **Content Reorganization:**
+  - Moved "What We Replace" section to appear immediately after Mission statement
+  - Removed quote card ("A standardized platform ensures no concern falls through the cracks...")
+  - New order: Hero → Mission → What We Replace → Core Capabilities → Sources
+
+### Files Modified
+- `/lib/content.json` - Updated crisis and solution content
+- `/lib/crisis-data.ts` - Filtered shooting data to 2020-2024
+- `/app/page.tsx` - Reordered Solution tab sections and removed quote card
+
+---
+
 ## [0.5.0] - 2025-10-06
 
 ### Added

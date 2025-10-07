@@ -32,6 +32,7 @@ import {
   Printer,
   Star,
   AlertTriangle,
+  Wrench,
 } from "lucide-react";
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { formatNumber, formatCurrency, formatPercentage } from "@/lib/utils";
@@ -499,6 +500,33 @@ const TheSolution: React.FC = () => {
         </CardContent>
       </Card>
 
+      {/* What We Replace - Before/After Comparison */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">What We Replace</CardTitle>
+          <CardDescription className="text-[#05092B]">From fragmented chaos to unified system</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
+            {solutionContent.whatWeReplace.map((item: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: idx * 0.08 }}
+                className="rounded-lg bg-[#FCC169] p-4 text-center shadow-md hover:shadow-lg transition-shadow"
+              >
+                <p className="text-sm text-[#05092B] line-through">{item.old}</p>
+                <div className="my-2 flex justify-center">
+                  <ChevronRight className="h-4 w-4 text-[#05092B]" />
+                </div>
+                <p className="text-sm font-semibold text-[#05092B]">{item.new}</p>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
       {/* Core Capabilities by Category */}
       <div className="space-y-6">
         <h3 className="text-3xl font-bold text-[#05092B]">Core Capabilities</h3>
@@ -535,47 +563,6 @@ const TheSolution: React.FC = () => {
           </motion.div>
         ))}
       </div>
-
-      {/* What We Replace - Before/After Comparison */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">What We Replace</CardTitle>
-          <CardDescription className="text-[#05092B]">From fragmented chaos to unified system</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            {solutionContent.whatWeReplace.map((item: any, idx: number) => (
-              <motion.div
-                key={idx}
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: idx * 0.08 }}
-                className="rounded-lg border border-slate-200 p-4 text-center"
-              >
-                <p className="text-sm text-[#05092B] line-through">{item.old}</p>
-                <div className="my-2 flex justify-center">
-                  <ChevronRight className="h-4 w-4 text-[#FCC169]" />
-                </div>
-                <p className="text-sm font-semibold text-[#05092B]">{item.new}</p>
-              </motion.div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Pull Quote */}
-      <Card className="border-l-4 border-l-[#FCC169] bg-slate-50">
-        <CardContent className="pt-6">
-          <div className="flex gap-4">
-            <div className="text-6xl text-[#FCC169] leading-none">&ldquo;</div>
-            <div>
-              <p className="text-lg text-[#05092B] italic leading-relaxed">
-                {solutionContent.quote}
-              </p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
 
       {/* Sources */}
       <Card className="bg-slate-50">
@@ -649,6 +636,16 @@ const TheMandates: React.FC = () => {
         </div>
         <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
       </motion.div>
+
+      {/* Future Baseline */}
+      <Card className="bg-[#FCC169] shadow-md hover:shadow-lg transition-shadow">
+        <CardContent className="pt-6">
+          <h3 className="text-2xl font-bold text-[#05092B] mb-4">Establishing the Standard</h3>
+          <p className="text-lg text-[#05092B] leading-relaxed">
+            {mandatesContent.trendline}
+          </p>
+        </CardContent>
+      </Card>
 
       {/* 11 States Summary */}
       <Card className="border-t-4 border-t-[#FCC169]">
@@ -748,37 +745,163 @@ const TheMandates: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* California Deep Dive */}
+      {/* California Compliance - SB 906 */}
       <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
         <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">California: The Next Major Mandate</CardTitle>
-          <CardDescription className="text-[#05092B]">SB 906 enacted, SB 1241 (SAFE Act) pending with July 2027 deadline</CardDescription>
+          <div className="flex items-start justify-between">
+            <div>
+              <CardTitle className="text-2xl text-[#05092B]">📋 SB 906</CardTitle>
+              <CardDescription className="text-[#05092B] mt-2">
+                Homicidal Threat Reporting Requirements
+              </CardDescription>
+            </div>
+            <Badge className="bg-green-600 text-white">Enacted 2023</Badge>
+          </div>
+          <p className="text-sm text-[#05092B] mt-3">
+            Requires school officials to report any homicidal threat to law enforcement, which must immediately conduct a threat assessment
+          </p>
         </CardHeader>
         <CardContent>
-          <div className="space-y-6">
-            {mandatesContent.states[0]?.legislation?.map((bill: any, idx: number) => (
-              <div key={idx} className="rounded-lg border border-slate-200 p-4">
-                <div className="flex items-start justify-between mb-3">
-                  <div>
-                    <h4 className="text-lg font-bold text-[#05092B]">{bill.bill}</h4>
-                    {bill.status && (
-                      <Badge variant="outline" className="mt-1 border-[#007097] text-[#007097]">
-                        {bill.status}
-                      </Badge>
-                    )}
-                    {bill.enacted && <p className="text-sm text-[#05092B] mt-1">Enacted {bill.enacted}</p>}
-                    {bill.deadline && <p className="text-sm font-semibold text-[#05092B] mt-1">Deadline: {bill.deadline}</p>}
+          {/* Column Headers */}
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div className="text-center py-2 bg-[#FCC169] rounded-lg">
+              <h3 className="font-bold text-[#05092B]">4StudentLives</h3>
+            </div>
+            <div className="text-center py-2 bg-slate-200 rounded-lg">
+              <h3 className="font-bold text-[#05092B]">SB 906 Requires</h3>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {/* SB 906 Requirements */}
+            {[
+              {
+                solution: "Automated Alert System",
+                description: "Instant notifications to administrators and designated staff when threats are flagged",
+                mandate: "Mandatory reporting of homicidal threats (grades 6-12)"
+              },
+              {
+                solution: "Law Enforcement Integration",
+                description: "One-click notification system with documented communication logs",
+                mandate: "Immediate law enforcement involvement"
+              },
+              {
+                solution: "Digital Workflow Engine",
+                description: "Every step timestamped, logged, and audit-ready with full compliance documentation",
+                mandate: "Documented procedures required"
+              },
+              {
+                solution: "Team Collaboration Portal",
+                description: "Secure space for counselors, administrators, SROs, and external partners to coordinate",
+                mandate: "Multidisciplinary coordination expected"
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="grid md:grid-cols-2 gap-4 rounded-lg overflow-hidden border border-slate-200">
+                {/* 4StudentLives Solution - LEFT */}
+                <div className="bg-white border-l-4 border-l-[#FCC169] p-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+                    <div>
+                      <h4 className="font-bold text-[#05092B]">{item.solution}</h4>
+                      <p className="text-sm text-[#05092B] mt-1">{item.description}</p>
+                    </div>
                   </div>
                 </div>
-                <p className="text-sm text-[#05092B] mb-3">{bill.summary}</p>
-                <ul className="space-y-2">
-                  {bill.requirements.map((req: string, ridx: number) => (
-                    <li key={ridx} className="flex gap-2 text-sm text-[#05092B]">
-                      <ChevronRight className="h-4 w-4 flex-shrink-0 text-[#FCC169] mt-0.5" />
-                      <span>{req}</span>
-                    </li>
-                  ))}
-                </ul>
+
+                {/* SB 906 Requirement - RIGHT */}
+                <div className="bg-slate-50 border-r-2 border-r-[#05092B] p-4 flex items-center">
+                  <div className="flex items-start gap-3 w-full">
+                    <Shield className="h-5 w-5 flex-shrink-0 text-[#05092B] mt-0.5" />
+                    <p className="text-sm text-[#05092B] font-medium">{item.mandate}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* California Compliance - SB 1241 */}
+      <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
+        <CardHeader>
+          <div className="flex items-start justify-between">
+            <div>
+              <CardTitle className="text-2xl text-[#05092B]">📋 SB 1241 (SAFE Act)</CardTitle>
+              <CardDescription className="text-[#05092B] mt-2">
+                Threat Assessment Team Mandate
+              </CardDescription>
+            </div>
+            <Badge variant="outline" className="border-[#007097] text-[#007097]">Pending</Badge>
+          </div>
+          <p className="text-sm text-[#05092B] mt-3">
+            Would mandate every middle and high school to establish a multidisciplinary threat assessment team
+          </p>
+          <p className="text-sm font-semibold text-[#05092B] mt-2">
+            Deadline: July 2027
+          </p>
+        </CardHeader>
+        <CardContent>
+          {/* Column Headers */}
+          <div className="grid md:grid-cols-2 gap-4 mb-4">
+            <div className="text-center py-2 bg-[#FCC169] rounded-lg">
+              <h3 className="font-bold text-[#05092B]">4StudentLives</h3>
+            </div>
+            <div className="text-center py-2 bg-slate-200 rounded-lg">
+              <h3 className="font-bold text-[#05092B]">SB 1241 Requires</h3>
+            </div>
+          </div>
+
+          <div className="space-y-3">
+            {/* SB 1241 Requirements */}
+            {[
+              {
+                solution: "Team Management Module",
+                description: "Create, assign, and manage multidisciplinary teams with role-based access",
+                mandate: "Threat assessment teams at all middle/high schools",
+                completed: true
+              },
+              {
+                solution: "Built-in Training Resources",
+                description: "Evidence-based protocols and best practices embedded in platform",
+                mandate: "Certified training for team members",
+                completed: true
+              },
+              {
+                solution: "Comprehensive Digital Records",
+                description: "Complete audit trail from initial concern through intervention and follow-up",
+                mandate: "Digital record of assessments and outcomes",
+                completed: true
+              },
+              {
+                solution: "Currently in Development",
+                description: "Expected Q2 2026",
+                mandate: "24/7 anonymous reporting line",
+                completed: false
+              }
+            ].map((item, idx) => (
+              <div key={idx} className="grid md:grid-cols-2 gap-4 rounded-lg overflow-hidden border border-slate-200">
+                {/* 4StudentLives Solution - LEFT */}
+                <div className="bg-white border-l-4 border-l-[#FCC169] p-4">
+                  <div className="flex items-start gap-3">
+                    {item.completed ? (
+                      <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+                    ) : (
+                      <Wrench className="h-5 w-5 flex-shrink-0 text-[#FCC169] mt-0.5" />
+                    )}
+                    <div>
+                      <h4 className="font-bold text-[#05092B]">{item.solution}</h4>
+                      <p className="text-sm text-[#05092B] mt-1">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* SB 1241 Requirement - RIGHT */}
+                <div className="bg-slate-50 border-r-2 border-r-[#05092B] p-4 flex items-center">
+                  <div className="flex items-start gap-3 w-full">
+                    <Shield className="h-5 w-5 flex-shrink-0 text-[#05092B] mt-0.5" />
+                    <p className="text-sm text-[#05092B] font-medium">{item.mandate}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -815,16 +938,6 @@ const TheMandates: React.FC = () => {
               </div>
             ))}
           </div>
-        </CardContent>
-      </Card>
-
-      {/* Trendline Statement */}
-      <Card className="border-l-4 border-l-[#FCC169] bg-white">
-        <CardContent className="pt-6">
-          <h3 className="text-2xl font-bold text-[#05092B] mb-4">The Future Baseline</h3>
-          <p className="text-lg text-[#05092B] leading-relaxed">
-            {mandatesContent.trendline}
-          </p>
         </CardContent>
       </Card>
 
@@ -948,25 +1061,29 @@ const CaliforniaMomentum: React.FC = () => {
               <CardTitle className="text-xl text-[#05092B]">Mandate Readiness & Gaps</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              {californiaContent.mandateReadiness.map((item: any, idx: number) => (
+              {californiaContent.mandateReadiness.map((item: any, idx: number) => {
+                // Color based on percentage ranges
+                const getColor = (percentage: number) => {
+                  if (percentage >= 90 && percentage < 100) return { text: 'text-green-600', bg: 'bg-green-500' };
+                  if (percentage >= 70 && percentage < 80) return { text: 'text-[#FCC169]', bg: 'bg-[#FCC169]' };
+                  if (percentage >= 20 && percentage < 30) return { text: 'text-red-600', bg: 'bg-red-500' };
+                  // Fallback for other ranges (like 97%)
+                  if (percentage >= 90) return { text: 'text-green-600', bg: 'bg-green-500' };
+                  return { text: 'text-red-600', bg: 'bg-red-500' };
+                };
+                const colors = getColor(item.percentage);
+
+                return (
                 <div key={idx} className="space-y-2">
                   <div className="flex justify-between items-start gap-4">
                     <p className="text-sm text-[#05092B] flex-1">{item.metric}</p>
-                    <p className={`text-lg font-bold ${
-                      item.status === 'compliant' ? 'text-green-600' :
-                      item.status === 'gap' ? 'text-red-600' :
-                      'text-[#FCC169]'
-                    }`}>
+                    <p className={`text-lg font-bold ${colors.text}`}>
                       {item.percentage}%
                     </p>
                   </div>
                   <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
                     <div
-                      className={`h-full ${
-                        item.status === 'compliant' ? 'bg-green-500' :
-                        item.status === 'gap' ? 'bg-red-500' :
-                        'bg-[#FCC169]'
-                      }`}
+                      className={`h-full ${colors.bg}`}
                       style={{ width: `${item.percentage}%` }}
                     />
                   </div>
@@ -983,7 +1100,8 @@ const CaliforniaMomentum: React.FC = () => {
                     </p>
                   )}
                 </div>
-              ))}
+              );
+              })}
             </CardContent>
           </Card>
 
@@ -993,19 +1111,29 @@ const CaliforniaMomentum: React.FC = () => {
               <CardTitle className="text-xl text-[#05092B]">Current State of Case Management</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              {californiaContent.currentState.map((item: any, idx: number) => (
+              {californiaContent.currentState.map((item: any, idx: number) => {
+                // Color based on percentage ranges
+                const getColor = (percentage: number) => {
+                  if (percentage >= 90 && percentage < 100) return { text: 'text-green-600', bg: 'bg-green-500' };
+                  if (percentage >= 70 && percentage < 80) return { text: 'text-[#FCC169]', bg: 'bg-[#FCC169]' };
+                  if (percentage >= 20 && percentage < 30) return { text: 'text-red-600', bg: 'bg-red-500' };
+                  // Fallback for other ranges
+                  if (percentage >= 90) return { text: 'text-green-600', bg: 'bg-green-500' };
+                  return { text: 'text-red-600', bg: 'bg-red-500' };
+                };
+                const colors = getColor(item.percentage);
+
+                return (
                 <div key={idx} className="space-y-2">
                   <div className="flex justify-between items-start gap-4">
                     <p className="text-sm text-[#05092B] flex-1">{item.finding}</p>
-                    <p className={`text-lg font-bold ${
-                      item.impact === 'opportunity' ? 'text-[#FCC169]' : 'text-red-600'
-                    }`}>
+                    <p className={`text-lg font-bold ${colors.text}`}>
                       {item.percentage}%
                     </p>
                   </div>
                   <div className="h-3 bg-slate-200 rounded-full overflow-hidden">
                     <div
-                      className={`h-full ${item.impact === 'opportunity' ? 'bg-[#FCC169]' : 'bg-red-500'}`}
+                      className={`h-full ${colors.bg}`}
                       style={{ width: `${item.percentage}%` }}
                     />
                   </div>
@@ -1022,7 +1150,8 @@ const CaliforniaMomentum: React.FC = () => {
                     </p>
                   )}
                 </div>
-              ))}
+              );
+              })}
             </CardContent>
           </Card>
         </div>
@@ -1152,13 +1281,6 @@ const WhyWeWin: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* The Gap Explanation */}
-      <Card className="border-t-4 border-t-[#FCC169]">
-        <CardContent className="pt-6 text-center">
-          <p className="text-2xl font-bold text-[#05092B]">{competitionContent.theGap}</p>
-        </CardContent>
-      </Card>
-
       {/* Competitor Analysis */}
       <div className="space-y-6">
         <h3 className="text-3xl font-bold text-[#05092B]">Competitive Landscape</h3>
@@ -1254,7 +1376,7 @@ const WhyWeWin: React.FC = () => {
             <div className="text-6xl text-[#FCC169] leading-none">&ldquo;</div>
             <div>
               <p className="text-lg text-[#05092B] italic leading-relaxed">
-                {competitionContent.quote}
+                {competitionContent.quote}&rdquo;
               </p>
             </div>
           </div>
@@ -1400,8 +1522,8 @@ const BusinessAndTraction: React.FC = () => {
               transition={{ delay: 0.2 }}
               className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
             >
-              <p className="text-sm font-medium text-[#05092B]">Assessments Completed</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">{businessContent.traction.assessmentsCompleted}</p>
+              <p className="text-sm font-medium text-[#05092B]">States Served</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">{businessContent.traction.statesServed}</p>
             </motion.div>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -1540,10 +1662,10 @@ const BusinessAndTraction: React.FC = () => {
           <ul className="space-y-2 text-xs text-slate-600">
             <li>
               <strong>National Center for Education Statistics (NCES)</strong> -{' '}
-              <a href="https://nces.ed.gov" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
-                https://nces.ed.gov
+              <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_214.10.asp" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://nces.ed.gov/programs/digest/d23/tables/dt23_214.10.asp
               </a>
-              {' '}- U.S. school counts and demographics
+              {' '}- Approximately 13,500 public school districts in the United States
             </li>
             <li>
               <strong>EdTech Market Analysis Reports</strong> -{' '}
@@ -1807,8 +1929,8 @@ export default function VCBriefPage() {
             <TabsTrigger value="mandates">Mandates</TabsTrigger>
             <TabsTrigger value="discovery">Discovery</TabsTrigger>
             <TabsTrigger value="competition">Why We Win</TabsTrigger>
-            <TabsTrigger value="business">Business</TabsTrigger>
-            <TabsTrigger value="funding">The Ask</TabsTrigger>
+            <TabsTrigger value="business">Market Opportunity</TabsTrigger>
+            <TabsTrigger value="funding">The Vision</TabsTrigger>
           </TabsList>
 
           <TabsContent value="crisis"><TheCrisis /></TabsContent>

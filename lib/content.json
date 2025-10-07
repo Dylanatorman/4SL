@@ -26,8 +26,8 @@
       },
       {
         "label": "Preventable",
-        "value": "Most",
-        "description": "Had identifiable precursors never formally assessed",
+        "value": "94%",
+        "description": "Of attackers had identifiable precursors never formally assessed",
         "severity": "warning"
       }
     ],
@@ -94,7 +94,7 @@
         "category": "Addressing the Mental Health Crisis",
         "features": [
           {
-            "title": "Digitized Suicide Risk Assessments",
+            "title": "Digitized Suicide Risk and Behavioral Threat Assessments",
             "description": "Evidence-based protocols ensure no student concern falls through the cracks"
           },
           {
@@ -152,8 +152,7 @@
       { "old": "Informal meetings", "new": "Documented collaboration" },
       { "old": "Lost data", "new": "Complete audit trails" },
       { "old": "Reactive chaos", "new": "Proactive system" }
-    ],
-    "quote": "A standardized platform ensures no concern falls through the cracks and that the school meets mandates (like training staff to recognize warning signs and having clear protocols to respond)."
+    ]
   },
   "mandates": {
     "title": "The Mandate Landscape",
@@ -294,7 +293,7 @@
         "url": "https://www.secretservice.gov/reports"
       }
     ],
-    "trendline": "This is not a passing trend—it is the future baseline for compliance. Digital threat assessment platforms will soon be as essential to schools as student information systems."
+    "trendline": "This is not a passing trend—it is the emerging standard. Digital suicide risk and behavioral threat assessment platforms will soon be as essential to schools as student information systems."
   },
   "california": {
     "title": "California Momentum",
@@ -309,7 +308,7 @@
       {
         "label": "Districts Represented",
         "value": "550+",
-        "description": "Across the state"
+        "description": "by Engaged Counties"
       },
       {
         "label": "Unique Respondents",
@@ -378,7 +377,6 @@
     "title": "The Compliance Gap",
     "subtitle": "Why existing solutions fall short",
     "positioning": "4StudentLives is the only platform purpose-built for K-12 threat assessment compliance. While competitors focus on adjacent functions—anonymous reporting, broad safety, or emergency response—we provide the clinical-grade tools and compliance infrastructure that state mandates actually require.",
-    "theGap": "Adjacent functions (reporting, emergency response) ≠ Compliance backbone for threat assessment mandates",
     "competitors": [
       {
         "name": "Navigate360",
@@ -443,9 +441,9 @@
     "title": "Market Opportunity",
     "subtitle": "From Optional to Obligatory",
     "marketSize": {
-      "totalSchools": 130000,
-      "description": "130,000+ U.S. schools",
-      "opportunity": "$5B+",
+      "totalSchools": 13500,
+      "description": "13,500 districts",
+      "opportunity": "$200M",
       "opportunityDescription": "Compliance and safety technology market"
     },
     "mandatedMarket": {
@@ -454,9 +452,9 @@
       "trend": "Growing rapidly as more states adopt mandates"
     },
     "traction": {
-      "districts": 6,
-      "studentsServed": "Thousands",
-      "assessmentsCompleted": "Hundreds",
+      "districts": 17,
+      "studentsServed": "36,800",
+      "statesServed": 3,
       "pipeline": "Active negotiations driven by compliance deadlines"
     },
     "revenueModel": {
@@ -476,7 +474,7 @@
       "Crisis worsening (data demonstrates urgency)",
       "Market shift from 'optional' to 'obligatory'"
     ],
-    "outlook": "Digital threat assessment platforms will soon be as essential to schools as student information systems. The convergence of student mental health crises, government mandates, and multimillion-dollar legal exposure ensures that adoption is not a question of if but when."
+    "outlook": "Digital suicide risk and behavioral threat assessment platforms will soon be as essential to schools as student information systems. The convergence of student mental health crises, government mandates, and multimillion-dollar legal exposure ensures that adoption is not a question of if but when."
   },
   "team": {
     "description": "We are a flexible, fast-moving, hard-working team that ships improvements quickly into the live platform as new district or state requirements emerge.",
@@ -494,24 +492,19 @@
     },
     "useOfFunds": [
       {
-        "category": "State-Specific Compliance Engineering",
-        "description": "Rapid configuration for new state mandates and requirements",
-        "percentage": 30
+        "category": "Product Development",
+        "description": "Compliance, platform scalability, and AI integration",
+        "percentage": 40
       },
       {
-        "category": "Sales & Partnerships in Mandate States",
-        "description": "Target the 11 mandate states plus California pre-2027 deadline",
-        "percentage": 35
+        "category": "Sales and Marketing Efforts",
+        "description": "Target mandate states, build partnerships, and accelerate market penetration",
+        "percentage": 40
       },
       {
-        "category": "Platform Scalability",
-        "description": "Enterprise-ready infrastructure for state-level deployment",
+        "category": "Customer Success and Retention",
+        "description": "Ensure adoption, maximize retention, and drive district expansion",
         "percentage": 20
-      },
-      {
-        "category": "Customer Success & Retention",
-        "description": "Ensure high retention and expansion within districts",
-        "percentage": 15
       }
     ],
     "moralAndFinancial": {
