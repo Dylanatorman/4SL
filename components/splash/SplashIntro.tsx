@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import StarfieldBackground from './StarfieldBackground';
 
 interface SplashIntroProps {
   children: React.ReactNode;
@@ -98,6 +99,9 @@ export default function SplashIntro({ children }: SplashIntroProps) {
                 : { duration: 2.5, ease: [0.22, 1, 0.36, 1] }
             }
           >
+            {/* Starfield Background - Bottom Half Only */}
+            {!prefersReducedMotion && <StarfieldBackground />}
+
             {/* Skip Button */}
             <motion.button
               className="absolute bottom-8 right-8 text-[#FCC169] text-sm font-medium hover:underline z-50"
@@ -145,10 +149,10 @@ export default function SplashIntro({ children }: SplashIntroProps) {
               </motion.p>
 
               {/* Startup Ignition Logos (Layered) */}
-              <div className="relative w-80 h-32 mt-4">
+              <div className="relative w-80 h-32 mt-4 z-30">
                 {/* Green Arrow - Top Layer (comes first, z-index higher) */}
                 <motion.div
-                  className="absolute inset-0 z-20"
+                  className="absolute inset-0 z-40"
                   initial={{ opacity: 0, y: 40, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   transition={{
@@ -168,7 +172,7 @@ export default function SplashIntro({ children }: SplashIntroProps) {
 
                 {/* Base Logo - Behind Arrow (fades in after, z-index lower) */}
                 <motion.div
-                  className="absolute inset-0 z-10"
+                  className="absolute inset-0 z-30"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{

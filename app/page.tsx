@@ -1935,15 +1935,15 @@ export default function VCBriefPage() {
         <BrandHeader />
         <main className="mx-auto max-w-7xl px-6 py-8">
           <Tabs defaultValue="crisis" className="space-y-6">
-            <TabsList className="grid w-full grid-cols-8 h-auto gap-1">
-              <TabsTrigger value="crisis">The Crisis</TabsTrigger>
-              <TabsTrigger value="storm">Impact</TabsTrigger>
-              <TabsTrigger value="solution">The Solution</TabsTrigger>
-              <TabsTrigger value="mandates">Mandates</TabsTrigger>
-              <TabsTrigger value="discovery">Discovery</TabsTrigger>
-              <TabsTrigger value="competition">Why We Win</TabsTrigger>
-              <TabsTrigger value="business">Market Opportunity</TabsTrigger>
-              <TabsTrigger value="funding">The Vision</TabsTrigger>
+            <TabsList className="flex w-full h-auto gap-1 overflow-x-auto md:grid md:grid-cols-8 scrollbar-thin">
+              <TabsTrigger value="crisis" className="flex-shrink-0 md:flex-shrink">The Crisis</TabsTrigger>
+              <TabsTrigger value="storm" className="flex-shrink-0 md:flex-shrink">Impact</TabsTrigger>
+              <TabsTrigger value="solution" className="flex-shrink-0 md:flex-shrink">The Solution</TabsTrigger>
+              <TabsTrigger value="mandates" className="flex-shrink-0 md:flex-shrink">Mandates</TabsTrigger>
+              <TabsTrigger value="discovery" className="flex-shrink-0 md:flex-shrink">Discovery</TabsTrigger>
+              <TabsTrigger value="competition" className="flex-shrink-0 md:flex-shrink">Why We Win</TabsTrigger>
+              <TabsTrigger value="business" className="flex-shrink-0 md:flex-shrink">Market Opportunity</TabsTrigger>
+              <TabsTrigger value="funding" className="flex-shrink-0 md:flex-shrink">The Vision</TabsTrigger>
             </TabsList>
 
             <TabsContent value="crisis"><TheCrisis /></TabsContent>

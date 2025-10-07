@@ -6,6 +6,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.6.1] - 2025-10-07
+
+### Added - Starfield Background to Splash Screen
+
+**Starfield Background Component**
+- **Animated starfield effect** on bottom half of splash screen
+- PNG image overlay displays cosmic starfield during intro sequence
+- Positioned to avoid watermark, showing top portion of image
+- Seamlessly integrated with split-screen background design
+
+**Visual Enhancement:**
+- Bottom half: Starfield background over dark green (rgba(23, 29, 26, 1))
+- Top half: 4SL Secondary Navy (#1A3859) - unchanged
+- Creates immersive space-themed intro experience
+- Background scales to fill entire bottom half with `backgroundSize: cover`
+
+**Technical Implementation:**
+- Simple `<div>` with background-image for optimal performance
+- `backgroundPosition: "top center"` to avoid watermark at bottom of image
+- No animation overhead - static image display
+- z-index: 10 ensures visibility above background, below logos
+
+**Assets Added:**
+- `/public/starfield_background.png` - Cosmic starfield image (1.8MB)
+
+**Files Created:**
+- `/components/splash/StarfieldBackground.tsx` - Starfield background component
+
+**Files Modified:**
+- `/components/splash/SplashIntro.tsx` - Integrated StarfieldBackground component
+
+---
+
 ## [0.6.0] - 2025-10-06
 
 ### Added - Cinematic Splash Screen Intro
