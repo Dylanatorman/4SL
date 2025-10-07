@@ -6,6 +6,31 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.5.5] - 2025-10-06
+
+### Changed - Mandate Links & Citations
+
+**Tab 4: The Mandate Landscape**
+- **Removed State Card Hyperlinks:**
+  - Removed "View Statute" links from individual state cards
+  - Cleaner, more professional presentation
+  - All statute references remain in Sources & Citations section
+
+- **Updated California Bill Links:**
+  - Split California SB 906 and SB 1241 into 4 separate citation entries
+  - Each bill now has dedicated "Bill Status" and "Full Text" links
+  - Full URLs displayed as clickable link text for transparency
+  - New links:
+    - SB 906 Bill Status: `https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202320240SB906`
+    - SB 906 Full Text: `https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB906`
+    - SB 1241 Bill Status: `https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202320240SB1241`
+    - SB 1241 Full Text: `https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB1241`
+
+### Files Modified
+- `/app/page.tsx` - Removed state card links, updated CA bill citations
+
+---
+
 ## [0.5.4] - 2025-10-06
 
 ### Changed - Traction Data & Vision Updates

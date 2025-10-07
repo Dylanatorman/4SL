@@ -726,17 +726,6 @@ const TheMandates: React.FC = () => {
                         See California Deep Dive section below for detailed requirements
                       </p>
                     )}
-                    {state.url && (
-                      <a
-                        href={state.url}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 text-xs text-[#007097] hover:underline mt-2"
-                      >
-                        View Statute
-                        <ExternalLink className="h-3 w-3" />
-                      </a>
-                    )}
                   </CardContent>
                 </Card>
               </motion.div>
@@ -958,9 +947,27 @@ const TheMandates: React.FC = () => {
               </a>
             </li>
             <li>
-              <strong>California SB 906 & SB 1241</strong> -{' '}
-              <a href="https://leginfo.legislature.ca.gov" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
-                https://leginfo.legislature.ca.gov
+              <strong>California SB 906 (Bill Status)</strong> -{' '}
+              <a href="https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202320240SB906" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202320240SB906
+              </a>
+            </li>
+            <li>
+              <strong>California SB 906 (Full Text)</strong> -{' '}
+              <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB906" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB906
+              </a>
+            </li>
+            <li>
+              <strong>California SB 1241 - SAFE Act (Bill Status)</strong> -{' '}
+              <a href="https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202320240SB1241" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://leginfo.legislature.ca.gov/faces/billStatusClient.xhtml?bill_id=202320240SB1241
+              </a>
+            </li>
+            <li>
+              <strong>California SB 1241 - SAFE Act (Full Text)</strong> -{' '}
+              <a href="https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB1241" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://leginfo.legislature.ca.gov/faces/billTextClient.xhtml?bill_id=202320240SB1241
               </a>
             </li>
             <li>
