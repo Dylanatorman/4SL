@@ -729,6 +729,104 @@ const [searchQuery, setSearchQuery] = useState("");
 
 ---
 
+## 🎬 Splash Screen Architecture
+
+### Component: SplashIntro
+
+**Location:** `components/splash/SplashIntro.tsx`
+
+**Purpose:** Premium cinematic intro presenting 4StudentLives and Startup Ignition branding before main VC brief
+
+### Technical Implementation
+
+**State Management:**
+```tsx
+// Immediate sessionStorage check prevents content flash
+const [showSplash, setShowSplash] = useState(() => {
+  if (typeof window !== 'undefined') {
+    return !sessionStorage.getItem('4sl_intro_seen');
+  }
+  return true; // SSR default
+});
+```
+
+**Key Features:**
+- ✅ No white flash on load (content rendered underneath from start)
+- ✅ sessionStorage prevents repeat views (once per tab session)
+- ✅ Skip functionality (click, ESC key, skip button)
+- ✅ Accessibility: respects `prefers-reduced-motion`
+- ✅ Smooth radial reveal using CSS mask (no opacity fade)
+
+### Animation Timeline (9 seconds total)
+
+```
+0.0s - 1.3s:  4SL Logo fade-in
+2.3s - 3.2s:  "Presents Dossier for" text appears
+3.9s - 4.7s:  Green arrow animates down (top layer, z-20)
+4.9s - 5.9s:  Base logo fades behind arrow (bottom layer, z-10)
+7.0s - 9.5s:  Radial mask expansion reveals content (2.5s)
+```
+
+### Visual Design
+
+**Split-Screen Background:**
+```css
+background: linear-gradient(
+  to bottom,
+  #1A3859 0%, #1A3859 50%,          /* 4SL Navy top half */
+  rgba(23, 29, 26, 1) 50%, rgba(23, 29, 26, 1) 100%  /* SI Green bottom half */
+);
+```
+
+**Logo Layering:**
+- **Green Arrow** (z-index: 20) - Top layer, prevents white wash-over
+- **Base Text** (z-index: 10) - Behind arrow, creates depth
+- **Background** (z-index: 1) - Split-tone gradient
+
+### Exit Animation
+
+**Radial Reveal Mechanism:**
+```tsx
+exit={{
+  WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)',
+  maskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)'
+}}
+transition={{ duration: 2.5, ease: [0.22, 1, 0.36, 1] }}
+```
+
+**Why This Works:**
+- Mask creates expanding transparent circle from center
+- Content underneath becomes visible through transparent area
+- No opacity fade = no white flash
+- Smooth 2.5s expansion for cinematic reveal
+
+### Performance Considerations
+
+- All images use Next.js `Image` with `priority` flag
+- Animations GPU-accelerated (transform, opacity, mask)
+- Content pre-rendered (no lazy loading delay)
+- Single component, minimal bundle impact
+
+### Integration
+
+**Usage in app/page.tsx:**
+```tsx
+export default function VCBriefPage() {
+  return (
+    <SplashIntro>
+      {/* Main VC Brief content */}
+    </SplashIntro>
+  );
+}
+```
+
+**Assets Required:**
+- `/public/4SL_logo.png` (existing)
+- `/public/startup_ignition_arrow_hd.png` (green arrow)
+- `/public/startup_ignition_base_hd.png` (white base text)
+
+---
+
 ## 📖 Further Reading
 
 **Next.js Documentation:**
@@ -749,6 +847,6 @@ const [searchQuery, setSearchQuery] = useState("");
 ---
 
 **Last Updated:** 2025-10-06
-**Version:** 0.4.1
-**Status:** 8 of 8 tabs complete 🎉 (100% COMPLETE)
+**Version:** 0.6.0
+**Status:** 8 of 8 tabs complete + Splash Screen 🎉 (100% COMPLETE)
 **Maintainer:** 4StudentLives Development Team

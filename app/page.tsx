@@ -38,6 +38,7 @@ import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, Cart
 import { formatNumber, formatCurrency, formatPercentage } from "@/lib/utils";
 import content from "@/lib/content.json";
 import { suicideData, shootingData, crisisStats } from "@/lib/crisis-data";
+import SplashIntro from "@/components/splash/SplashIntro";
 
 // Note: content.json structure doesn't match VCBriefContent type, using any
 const data = content as any;
@@ -269,7 +270,7 @@ const TheCrisis: React.FC = () => {
   );
 };
 
-// Tab 2: The Perfect Storm
+// Tab 2: Impact
 const PerfectStorm: React.FC = () => {
   const stormContent = (content as any).perfectStorm;
 
@@ -343,7 +344,7 @@ const PerfectStorm: React.FC = () => {
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={mandateTimeline}>
+            <BarChart data={mandateTimeline} margin={{ left: 20 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
               <YAxis label={{ value: 'States with Mandates', angle: -90, position: 'insideLeft' }} />
@@ -734,6 +735,11 @@ const TheMandates: React.FC = () => {
         </CardContent>
       </Card>
 
+      {/* California Header */}
+      <div className="mt-8 mb-6">
+        <h2 className="text-4xl font-bold text-[#05092B] text-center">California</h2>
+      </div>
+
       {/* California Compliance - SB 906 */}
       <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
         <CardHeader>
@@ -753,11 +759,11 @@ const TheMandates: React.FC = () => {
         <CardContent>
           {/* Column Headers */}
           <div className="grid md:grid-cols-2 gap-4 mb-4">
-            <div className="text-center py-2 bg-[#FCC169] rounded-lg">
-              <h3 className="font-bold text-[#05092B]">4StudentLives</h3>
-            </div>
             <div className="text-center py-2 bg-slate-200 rounded-lg">
               <h3 className="font-bold text-[#05092B]">SB 906 Requires</h3>
+            </div>
+            <div className="text-center py-2 bg-[#FCC169] rounded-lg">
+              <h3 className="font-bold text-[#05092B]">4StudentLives</h3>
             </div>
           </div>
 
@@ -786,22 +792,22 @@ const TheMandates: React.FC = () => {
               }
             ].map((item, idx) => (
               <div key={idx} className="grid md:grid-cols-2 gap-4 rounded-lg overflow-hidden border border-slate-200">
-                {/* 4StudentLives Solution - LEFT */}
-                <div className="bg-white border-l-4 border-l-[#FCC169] p-4">
+                {/* SB 906 Requirement - LEFT */}
+                <div className="bg-slate-50 border-l-2 border-l-[#05092B] p-4 flex items-center">
+                  <div className="flex items-start gap-3 w-full">
+                    <Shield className="h-5 w-5 flex-shrink-0 text-[#05092B] mt-0.5" />
+                    <p className="text-sm text-[#05092B] font-medium">{item.mandate}</p>
+                  </div>
+                </div>
+
+                {/* 4StudentLives Solution - RIGHT */}
+                <div className="bg-white border-r-4 border-r-[#FCC169] p-4">
                   <div className="flex items-start gap-3">
                     <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
                     <div>
                       <h4 className="font-bold text-[#05092B]">{item.solution}</h4>
                       <p className="text-sm text-[#05092B] mt-1">{item.description}</p>
                     </div>
-                  </div>
-                </div>
-
-                {/* SB 906 Requirement - RIGHT */}
-                <div className="bg-slate-50 border-r-2 border-r-[#05092B] p-4 flex items-center">
-                  <div className="flex items-start gap-3 w-full">
-                    <Shield className="h-5 w-5 flex-shrink-0 text-[#05092B] mt-0.5" />
-                    <p className="text-sm text-[#05092B] font-medium">{item.mandate}</p>
                   </div>
                 </div>
               </div>
@@ -832,11 +838,11 @@ const TheMandates: React.FC = () => {
         <CardContent>
           {/* Column Headers */}
           <div className="grid md:grid-cols-2 gap-4 mb-4">
-            <div className="text-center py-2 bg-[#FCC169] rounded-lg">
-              <h3 className="font-bold text-[#05092B]">4StudentLives</h3>
-            </div>
             <div className="text-center py-2 bg-slate-200 rounded-lg">
               <h3 className="font-bold text-[#05092B]">SB 1241 Requires</h3>
+            </div>
+            <div className="text-center py-2 bg-[#FCC169] rounded-lg">
+              <h3 className="font-bold text-[#05092B]">4StudentLives</h3>
             </div>
           </div>
 
@@ -869,8 +875,16 @@ const TheMandates: React.FC = () => {
               }
             ].map((item, idx) => (
               <div key={idx} className="grid md:grid-cols-2 gap-4 rounded-lg overflow-hidden border border-slate-200">
-                {/* 4StudentLives Solution - LEFT */}
-                <div className="bg-white border-l-4 border-l-[#FCC169] p-4">
+                {/* SB 1241 Requirement - LEFT */}
+                <div className="bg-slate-50 border-l-2 border-l-[#05092B] p-4 flex items-center">
+                  <div className="flex items-start gap-3 w-full">
+                    <Shield className="h-5 w-5 flex-shrink-0 text-[#05092B] mt-0.5" />
+                    <p className="text-sm text-[#05092B] font-medium">{item.mandate}</p>
+                  </div>
+                </div>
+
+                {/* 4StudentLives Solution - RIGHT */}
+                <div className="bg-white border-r-4 border-r-[#FCC169] p-4">
                   <div className="flex items-start gap-3">
                     {item.completed ? (
                       <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
@@ -881,14 +895,6 @@ const TheMandates: React.FC = () => {
                       <h4 className="font-bold text-[#05092B]">{item.solution}</h4>
                       <p className="text-sm text-[#05092B] mt-1">{item.description}</p>
                     </div>
-                  </div>
-                </div>
-
-                {/* SB 1241 Requirement - RIGHT */}
-                <div className="bg-slate-50 border-r-2 border-r-[#05092B] p-4 flex items-center">
-                  <div className="flex items-start gap-3 w-full">
-                    <Shield className="h-5 w-5 flex-shrink-0 text-[#05092B] mt-0.5" />
-                    <p className="text-sm text-[#05092B] font-medium">{item.mandate}</p>
                   </div>
                 </div>
               </div>
@@ -1772,8 +1778,7 @@ const TheAsk: React.FC = () => {
       {/* Use of Funds */}
       <Card className="border-t-4 border-t-[#FCC169]">
         <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Use of Funds</CardTitle>
-          <CardDescription className="text-[#05092B]">Strategic allocation for rapid growth and compliance leadership</CardDescription>
+          <CardTitle className="text-2xl text-[#05092B]">Use of Investment Funds</CardTitle>
         </CardHeader>
         <CardContent>
           <div className="grid gap-8 lg:grid-cols-2">
@@ -1925,36 +1930,38 @@ const TheAsk: React.FC = () => {
 
 export default function VCBriefPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <BrandHeader />
-      <main className="mx-auto max-w-7xl px-6 py-8">
-        <Tabs defaultValue="crisis" className="space-y-6">
-          <TabsList className="grid w-full grid-cols-8 h-auto gap-1">
-            <TabsTrigger value="crisis">The Crisis</TabsTrigger>
-            <TabsTrigger value="storm">Perfect Storm</TabsTrigger>
-            <TabsTrigger value="solution">The Solution</TabsTrigger>
-            <TabsTrigger value="mandates">Mandates</TabsTrigger>
-            <TabsTrigger value="discovery">Discovery</TabsTrigger>
-            <TabsTrigger value="competition">Why We Win</TabsTrigger>
-            <TabsTrigger value="business">Market Opportunity</TabsTrigger>
-            <TabsTrigger value="funding">The Vision</TabsTrigger>
-          </TabsList>
+    <SplashIntro>
+      <div className="min-h-screen bg-white">
+        <BrandHeader />
+        <main className="mx-auto max-w-7xl px-6 py-8">
+          <Tabs defaultValue="crisis" className="space-y-6">
+            <TabsList className="grid w-full grid-cols-8 h-auto gap-1">
+              <TabsTrigger value="crisis">The Crisis</TabsTrigger>
+              <TabsTrigger value="storm">Impact</TabsTrigger>
+              <TabsTrigger value="solution">The Solution</TabsTrigger>
+              <TabsTrigger value="mandates">Mandates</TabsTrigger>
+              <TabsTrigger value="discovery">Discovery</TabsTrigger>
+              <TabsTrigger value="competition">Why We Win</TabsTrigger>
+              <TabsTrigger value="business">Market Opportunity</TabsTrigger>
+              <TabsTrigger value="funding">The Vision</TabsTrigger>
+            </TabsList>
 
-          <TabsContent value="crisis"><TheCrisis /></TabsContent>
-          <TabsContent value="storm"><PerfectStorm /></TabsContent>
-          <TabsContent value="solution"><TheSolution /></TabsContent>
-          <TabsContent value="mandates"><TheMandates /></TabsContent>
-          <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
-          <TabsContent value="competition"><WhyWeWin /></TabsContent>
-          <TabsContent value="business"><BusinessAndTraction /></TabsContent>
-          <TabsContent value="funding"><TheAsk /></TabsContent>
-        </Tabs>
+            <TabsContent value="crisis"><TheCrisis /></TabsContent>
+            <TabsContent value="storm"><PerfectStorm /></TabsContent>
+            <TabsContent value="solution"><TheSolution /></TabsContent>
+            <TabsContent value="mandates"><TheMandates /></TabsContent>
+            <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
+            <TabsContent value="competition"><WhyWeWin /></TabsContent>
+            <TabsContent value="business"><BusinessAndTraction /></TabsContent>
+            <TabsContent value="funding"><TheAsk /></TabsContent>
+          </Tabs>
 
-        <footer className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-xs text-slate-600 print:hidden">
-          <span>© {new Date().getFullYear()} 4StudentLives. Private investor materials. Confidential.</span>
-          <span>Designed for impact • Built for scale</span>
-        </footer>
-      </main>
-    </div>
+          <footer className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-xs text-slate-600 print:hidden">
+            <span>© {new Date().getFullYear()} 4StudentLives. Private investor materials. Confidential.</span>
+            <span>Designed for impact • Built for scale</span>
+          </footer>
+        </main>
+      </div>
+    </SplashIntro>
   );
 }

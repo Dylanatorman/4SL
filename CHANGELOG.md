@@ -6,6 +6,82 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [0.6.0] - 2025-10-06
+
+### Added - Cinematic Splash Screen Intro
+
+**New Component: SplashIntro**
+- **Premium 9-second intro sequence** presenting 4StudentLives and Startup Ignition branding
+- Only displays once per browser session (sessionStorage)
+- Accessible skip functionality (click anywhere, ESC key, or "Skip intro" button)
+- Respects `prefers-reduced-motion` accessibility preference
+
+**Visual Sequence:**
+1. **4SL Logo** - Smooth 1.3s fade-in on navy background (#1A3859)
+2. **"Presents Dossier for"** - Gold text (#FCC169) appears at 2.3s
+3. **Startup Ignition Arrow** - Green arrow animates down at 3.9s (layered on top)
+4. **Startup Ignition Base** - White base logo fades in behind arrow at 4.9s
+5. **2.5s Dramatic Reveal** - Radial mask expansion smoothly reveals VC Brief content underneath
+
+**Split-Screen Background:**
+- Top half: 4SL Secondary Navy (#1A3859)
+- Bottom half: Startup Ignition dark green (rgba(23, 29, 26, 1))
+- Creates elegant two-tone presentation backdrop
+
+**Technical Implementation:**
+- Content always rendered underneath splash (prevents white flash)
+- Exit animation uses CSS mask for smooth radial reveal
+- No opacity fade - pure mask expansion for clean transition
+- Framer Motion for all animations with premium easing curves
+- z-index layering ensures proper logo stacking (arrow over base)
+
+**Assets Added:**
+- `/public/startup_ignition_arrow_hd.png` - Green arrow logo (top layer)
+- `/public/startup_ignition_base_hd.png` - White base text (bottom layer)
+
+**User Experience:**
+- Prevents initial content flash by checking sessionStorage on mount
+- Skip functionality always available for repeat viewers
+- sessionStorage flag ensures one view per tab session
+- Smooth transition into main VC brief content
+
+### Files Created
+- `/components/splash/SplashIntro.tsx` - Main splash screen component
+
+### Files Modified
+- `/app/page.tsx` - Wrapped main content with SplashIntro component
+
+---
+
+## [0.5.6] - 2025-10-06
+
+### Changed - Tab Rename & Mandates Layout
+
+**Tab 2: Renamed to "Impact"**
+- Changed tab name from "Perfect Storm" to "Impact" for clearer messaging
+- Tab trigger text updated in navigation
+
+**Tab 2: Chart Visualization Fix**
+- **Fixed Mandate Adoption Bar Chart:**
+  - Added left margin (20px) to prevent y-axis label cutoff
+  - "States with Mandates" label now fully visible (was truncated to "Mand...")
+
+**Tab 4: The Mandate Landscape - California Comparison Section**
+- **Added California Header:**
+  - Large, bold "California" header (text-4xl) now displayed above SB 906/SB 1241 sections
+  - Clearly indicates these bills are California-specific legislation
+
+- **Swapped Layout:**
+  - LEFT side: California bills (SB 906 & SB 1241) with requirements
+  - RIGHT side: 4StudentLives solutions
+  - Previous layout had 4SL on left and bills on right
+  - Better visual flow showing mandate → solution
+
+### Files Modified
+- `/app/page.tsx` - Tab rename, chart margin fix, California header addition, layout swap
+
+---
+
 ## [0.5.5] - 2025-10-06
 
 ### Changed - Mandate Links & Citations
