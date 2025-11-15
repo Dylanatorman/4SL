@@ -34,11 +34,18 @@ import {
   AlertTriangle,
   Wrench,
 } from "lucide-react";
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ComposedChart } from 'recharts';
 import { formatNumber, formatCurrency, formatPercentage } from "@/lib/utils";
 import content from "@/lib/content.json";
 import { suicideData, shootingData, crisisStats } from "@/lib/crisis-data";
-import SplashIntro from "@/components/splash/SplashIntro";
+import {
+  mrrGrowthData,
+  contractVelocityData,
+  revenueTrajectoryData,
+  revenueMixData,
+  profitabilityPathData,
+  fiscalYearSummary
+} from "@/lib/financial-data";
 
 // Note: content.json structure doesn't match VCBriefContent type, using any
 const data = content as any;
@@ -162,7 +169,7 @@ const TheCrisis: React.FC = () => {
                 <strong>39% increase</strong> from 2011 to 2021
               </p>
               <ResponsiveContainer width="100%" height={300}>
-                <LineChart data={suicideData}>
+                <LineChart data={suicideData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis
                     dataKey="year"
@@ -172,7 +179,7 @@ const TheCrisis: React.FC = () => {
                     textAnchor="end"
                     height={60}
                   />
-                  <YAxis domain={[7, 12]} label={{ value: 'Rate per 100k', angle: -90, position: 'insideLeft' }} />
+                  <YAxis domain={[7, 12]} label={{ value: 'Rate per 100k', angle: -90, position: 'insideLeft', offset: -5 }} tick={{ fontSize: 11 }} />
                   <Tooltip />
                   <Line
                     type="monotone"
@@ -198,10 +205,10 @@ const TheCrisis: React.FC = () => {
                 <strong>410% increase</strong> from 2020 to 2022
               </p>
               <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={shootingData}>
+                <BarChart data={shootingData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="year" />
-                  <YAxis label={{ value: 'Incidents', angle: -90, position: 'insideLeft' }} />
+                  <YAxis label={{ value: 'Incidents', angle: -90, position: 'insideLeft', offset: -5 }} tick={{ fontSize: 11 }} />
                   <Tooltip />
                   <Bar dataKey="incidents" fill="#1A3859" name="Incidents" />
                 </BarChart>
@@ -344,10 +351,10 @@ const PerfectStorm: React.FC = () => {
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={mandateTimeline} margin={{ left: 20 }}>
+            <BarChart data={mandateTimeline} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
-              <YAxis label={{ value: 'States with Mandates', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'States with Mandates', angle: -90, position: 'insideLeft', offset: -5 }} tick={{ fontSize: 11 }} />
               <Tooltip />
               <Bar dataKey="states" fill="#1A3859" name="States" />
             </BarChart>
@@ -371,10 +378,10 @@ const PerfectStorm: React.FC = () => {
         </CardHeader>
         <CardContent>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={lawsuitData}>
+            <BarChart data={lawsuitData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="year" />
-              <YAxis label={{ value: 'Settlement ($M)', angle: -90, position: 'insideLeft' }} />
+              <YAxis label={{ value: 'Settlement ($M)', angle: -90, position: 'insideLeft', offset: -5 }} tick={{ fontSize: 11 }} />
               <Tooltip formatter={(value: number) => `$${value}M`} />
               <Bar dataKey="amount" fill="#05092B" name="Settlement Amount" />
             </BarChart>
@@ -1928,40 +1935,458 @@ const TheAsk: React.FC = () => {
   );
 };
 
+// Tab 9: Traction & Financials
+const TractionAndFinancials: React.FC = () => {
+  const tractionContent = (content as any).traction;
+
+  return (
+    <div className="space-y-8">
+      {/* Hero Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#05092B] to-[#1A3859] p-12 text-white shadow-2xl"
+      >
+        <div className="relative z-10">
+          <h2 className="text-5xl font-bold">{tractionContent.title}</h2>
+          <p className="mt-4 text-2xl text-white/90">{tractionContent.subtitle}</p>
+        </div>
+        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
+      </motion.div>
+
+      {/* Current Traction Section */}
+      <Card className="mb-8">
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Current Traction - First 90 Days</CardTitle>
+          <CardDescription className="text-[#05092B]">Demonstrating rapid growth and strong early market validation</CardDescription>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Recent Momentum - 3 Month MRR Cards */}
+          <div className="grid gap-6 sm:grid-cols-3">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="rounded-xl shadow-lg p-8 bg-white border-2 border-[#05092B]/10 hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-[#05092B]/60">{tractionContent.heroStats.month1.label}</p>
+              <p className="mt-2 text-5xl font-bold text-[#05092B]">{tractionContent.heroStats.month1.mrr}</p>
+              <p className="mt-2 text-sm text-[#05092B]">{tractionContent.heroStats.month1.contracts} contracts</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.2 }}
+              className="rounded-xl shadow-lg p-8 bg-gradient-to-br from-[#FCC169] to-[#FCC169]/80 hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-[#05092B]/80">{tractionContent.heroStats.month2.label}</p>
+              <p className="mt-2 text-5xl font-bold text-[#05092B]">{tractionContent.heroStats.month2.mrr}</p>
+              <p className="mt-1 text-sm text-[#05092B]">{tractionContent.heroStats.month2.contracts} contracts</p>
+              <div className="mt-2 inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
+                {tractionContent.heroStats.month2.growth} MoM
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.3 }}
+              className="rounded-xl shadow-lg p-8 bg-gradient-to-br from-[#007097] to-[#007097]/80 text-white hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-white/80">{tractionContent.heroStats.month3.label}</p>
+              <p className="mt-2 text-5xl font-bold">{tractionContent.heroStats.month3.mrr}</p>
+              <p className="mt-1 text-sm">{tractionContent.heroStats.month3.contracts} contracts</p>
+              <div className="mt-2 inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold">
+                {tractionContent.heroStats.month3.growth} MoM
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Key Metrics Grid */}
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {tractionContent.keyMetrics.map((metric: any, idx: number) => (
+              <StatCard key={idx} {...metric} delay={idx * 0.1} />
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Chart 1: MRR Growth & Contract Velocity */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Growth Momentum</CardTitle>
+          <CardDescription className="text-[#05092B]">Monthly recurring revenue and contract acquisition</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* MRR Growth Chart */}
+            <div>
+              <h4 className="mb-4 text-lg font-semibold text-[#05092B]">MRR Growth Trajectory</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <LineChart data={mrrGrowthData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="month" angle={-45} textAnchor="end" height={80} />
+                  <YAxis label={{ value: 'MRR ($)', angle: -90, position: 'insideLeft', dx: -10, dy: 75 }} tick={{ fontSize: 11 }} />
+                  <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+                  <Line
+                    type="monotone"
+                    dataKey="mrr"
+                    stroke="#05092B"
+                    strokeWidth={3}
+                    dot={(props: any) => {
+                      const { cx, cy, payload } = props;
+                      return (
+                        <circle
+                          cx={cx}
+                          cy={cy}
+                          r={6}
+                          fill={payload.actual ? '#FCC169' : '#007097'}
+                          stroke={payload.actual ? '#05092B' : '#007097'}
+                          strokeWidth={2}
+                        />
+                      );
+                    }}
+                    name="MRR"
+                  />
+                </LineChart>
+              </ResponsiveContainer>
+              <p className="mt-3 text-xs text-[#05092B]">
+                36-month MRR projection based on customer acquisition model
+              </p>
+            </div>
+
+            {/* Contract Velocity Chart */}
+            <div>
+              <h4 className="mb-4 text-lg font-semibold text-[#05092B]">Contract Velocity</h4>
+              <ResponsiveContainer width="100%" height={300}>
+                <ComposedChart data={contractVelocityData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="month" angle={-45} textAnchor="end" height={80} />
+                  <YAxis label={{ value: 'Contracts', angle: -90, position: 'insideLeft', dx: -10, dy: 75 }} tick={{ fontSize: 11 }} />
+                  <Tooltip />
+                  <Bar dataKey="newContracts" fill="#FCC169" name="New Contracts" />
+                  <Line type="monotone" dataKey="totalContracts" stroke="#05092B" strokeWidth={2} name="Total" />
+                </ComposedChart>
+              </ResponsiveContainer>
+              <p className="mt-3 text-xs text-[#05092B]">
+                Bars: New contracts per month | Line: Cumulative total
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* 36-Month Projections */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">36-Month Financial Outlook</CardTitle>
+          <CardDescription className="text-[#05092B]">Path to $7.5M revenue and profitability</CardDescription>
+        </CardHeader>
+        <CardContent>
+          {/* Fiscal Year Summary Cards */}
+          <div className="grid gap-6 mb-8 sm:grid-cols-3">
+            {fiscalYearSummary.map((year: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className={`rounded-xl shadow-lg p-6 ${
+                  idx === 0 ? 'bg-white border-2 border-[#05092B]/10' :
+                  idx === 1 ? 'bg-gradient-to-br from-[#FCC169]/20 to-[#FCC169]/10' :
+                  'bg-gradient-to-br from-[#007097]/20 to-[#007097]/10'
+                }`}
+              >
+                <h4 className="text-sm font-medium text-[#05092B]/60">{year.year}</h4>
+                <p className="mt-2 text-3xl font-bold text-[#05092B]">
+                  ${(year.revenue / 1000000).toFixed(1)}M
+                </p>
+                {year.growth && (
+                  <p className="mt-1 text-sm font-semibold text-green-600">+{year.growth}% YoY</p>
+                )}
+                <div className="mt-4 space-y-1 text-sm text-[#05092B]">
+                  <p>{year.customers} customers</p>
+                  <p>{year.grossMargin}% gross margin</p>
+                  <p className={year.netIncome > 0 ? 'text-green-600 font-semibold' : 'text-red-600'}>
+                    {year.netMargin}% net margin
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Revenue Trajectory Chart */}
+          <div className="mb-8">
+            <h4 className="mb-4 text-lg font-semibold text-[#05092B]">Revenue Growth (36 Months)</h4>
+            <ResponsiveContainer width="100%" height={450}>
+              <LineChart data={revenueTrajectoryData} margin={{ bottom: 60, left: 20, right: 10, top: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" vertical={true} />
+                <XAxis
+                  dataKey="month"
+                  angle={-45}
+                  textAnchor="end"
+                  height={80}
+                  interval={0}
+                  tick={{ fontSize: 11 }}
+                />
+                <YAxis
+                  label={{ value: 'Revenue ($)', angle: -90, position: 'insideLeft', dx: -10, dy: 75 }}
+                  tickFormatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
+                  tick={{ fontSize: 11 }}
+                />
+                <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+                <Line
+                  type="monotone"
+                  dataKey="totalRevenue"
+                  stroke="#007097"
+                  strokeWidth={3}
+                  dot={{ fill: '#007097', r: 3 }}
+                  name="Total Revenue"
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+
+          {/* Profitability Path */}
+          <div>
+            <h4 className="mb-4 text-lg font-semibold text-[#05092B]">
+              Path to Profitability
+              <span className="ml-3 text-sm font-normal text-[#007097]">Breakeven: Month 20 (June 2027)</span>
+            </h4>
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={profitabilityPathData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+                <CartesianGrid strokeDasharray="3 3" vertical={true} />
+                <XAxis dataKey="month" angle={-45} textAnchor="end" height={80} interval={0} tick={{ fontSize: 11 }} />
+                <YAxis label={{ value: 'Net Income ($)', angle: -90, position: 'insideLeft', dx: -10, dy: 75 }} tick={{ fontSize: 11 }} />
+                <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+                <Bar dataKey="netIncome" name="Net Income">
+                  {profitabilityPathData.map((entry: any, index: number) => (
+                    <Cell key={`cell-${index}`} fill={entry.netIncome >= 0 ? '#10b981' : '#ef4444'} />
+                  ))}
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+            <p className="mt-3 text-xs text-[#05092B]">
+              Red: Investment phase | Green: Profitable growth
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Revenue Mix Evolution */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Revenue Mix Evolution</CardTitle>
+          <CardDescription className="text-[#05092B]">Recurring revenue becomes majority by Year 3</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ResponsiveContainer width="100%" height={350}>
+            <BarChart data={revenueMixData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" angle={-45} textAnchor="end" height={80} />
+              <YAxis label={{ value: 'Revenue ($)', angle: -90, position: 'insideLeft', dx: -10, dy: 75 }} tick={{ fontSize: 11 }} />
+              <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+              <Legend />
+              <Bar dataKey="new" stackId="a" fill="#007097" name="New Customer Revenue" />
+              <Bar dataKey="renewal" stackId="a" fill="#10b981" name="Renewal Revenue" />
+              <Bar dataKey="ai" stackId="a" fill="#8b5cf6" name="AI Add-on Revenue" />
+              <Bar dataKey="onboarding" stackId="a" fill="#FCC169" name="Onboarding Fees" />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="mt-4 text-sm text-[#05092B]">
+            <strong>Key Insight:</strong> Renewal revenue (green) grows from 0% to 46% of total revenue by Year 3,
+            creating a sustainable, predictable revenue base.
+          </p>
+          <p className="mt-2 text-xs text-[#05092B]/70 italic">
+            Note: New customer revenue (blue) is prorated based on contract start dates and accumulates throughout each fiscal year.
+            The decrease from June to July reflects the fiscal year reset, where Year 1's accumulated new customer revenue transitions
+            to renewal revenue in Year 2, demonstrating the platform's strong retention and recurring revenue model.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Unit Economics */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Unit Economics</CardTitle>
+          <CardDescription className="text-[#05092B]">Capital-efficient growth with strong fundamentals</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {tractionContent.unitEconomics.map((econ: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#05092B]/5 to-[#007097]/5 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="text-3xl mb-2">{econ.icon}</div>
+                <p className="text-sm font-medium text-[#05092B]/60">{econ.label}</p>
+                <p className="mt-2 text-3xl font-bold text-[#05092B]">{econ.value}</p>
+                <p className="mt-1 text-sm font-semibold text-[#007097]">{econ.highlight}</p>
+                <p className="mt-2 text-xs text-[#05092B]">{econ.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Key Milestones Timeline */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Key Milestones</CardTitle>
+          <CardDescription className="text-[#05092B]">18-month runway to sustained profitability</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {tractionContent.milestones.map((milestone: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className={`flex items-start gap-4 p-4 rounded-lg ${
+                  milestone.status === 'completed' ? 'bg-green-50 border-l-4 border-green-600' :
+                  milestone.highlight ? 'bg-[#FCC169]/20 border-l-4 border-[#FCC169]' :
+                  'bg-gray-50 border-l-4 border-gray-300'
+                }`}
+              >
+                <div className="flex-shrink-0">
+                  {milestone.status === 'completed' ? (
+                    <CheckCircle2 className="h-6 w-6 text-green-600" />
+                  ) : (
+                    <Clock className="h-6 w-6 text-[#007097]" />
+                  )}
+                </div>
+                <div className="flex-grow">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-semibold text-[#05092B]">{milestone.label}</h4>
+                    {milestone.month > 0 && (
+                      <span className="text-xs text-[#05092B]/60">(Month {milestone.month})</span>
+                    )}
+                  </div>
+                  <p className="text-sm font-semibold text-[#007097] mt-1">{milestone.metric}</p>
+                  <p className="text-sm text-[#05092B]/60 mt-1">{milestone.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Investment Opportunity */}
+      <Card className="border-2 border-[#007097]">
+        <CardHeader className="bg-gradient-to-r from-[#05092B] to-[#007097] text-white">
+          <CardTitle className="text-2xl">Pre-Seed Investment Opportunity</CardTitle>
+          <CardDescription className="text-white/90">{tractionContent.investment.amount} to accelerate growth</CardDescription>
+        </CardHeader>
+        <CardContent className="pt-6">
+          <div className="grid gap-8 md:grid-cols-2">
+            {/* Use of Funds */}
+            <div>
+              <h4 className="mb-4 text-lg font-semibold text-[#05092B]">Use of Funds</h4>
+              <div className="space-y-3">
+                {tractionContent.investment.useOfFunds.map((fund: any, idx: number) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-16 h-16 rounded-lg bg-[#FCC169] flex items-center justify-center">
+                      <span className="text-2xl font-bold text-[#05092B]">{fund.percentage}%</span>
+                    </div>
+                    <div className="flex-grow">
+                      <p className="font-semibold text-[#05092B]">{fund.category}</p>
+                      <p className="text-sm text-[#05092B]/60">{fund.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="mt-4 text-sm font-medium text-[#007097]">
+                Runway: {tractionContent.investment.runway}
+              </p>
+            </div>
+
+            {/* Why Invest Now */}
+            <div>
+              <h4 className="mb-4 text-lg font-semibold text-[#05092B]">Why Invest Now</h4>
+              <ul className="space-y-3">
+                {tractionContent.investment.whyNow.map((reason: string, idx: number) => (
+                  <li key={idx} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-[#05092B]">{reason}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Sources */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2 text-lg text-[#05092B]">
+            <FileText className="h-5 w-5" />
+            Data Sources
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <ul className="space-y-2 text-sm text-[#05092B]">
+            <li>
+              • Financial projections:{' '}
+              <a
+                href="https://docs.google.com/spreadsheets/d/1Dl30rXunoZ_Z7pev3ZMxQkOFODQKCAaW/edit?gid=1283445731#gid=1283445731"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#007097] hover:underline inline-flex items-center gap-1"
+              >
+                4SL 36-Month Model
+                <ExternalLink className="h-3 w-3" />
+              </a>
+              {' '}(November 2025)
+            </li>
+            <li>• Recent traction: Actual contract data (August-October 2025)</li>
+            <li>• Market sizing: Analysis of K-12 enrollment and state mandate compliance requirements</li>
+          </ul>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
 export default function VCBriefPage() {
   return (
-    <SplashIntro>
-      <div className="min-h-screen bg-white">
-        <BrandHeader />
-        <main className="mx-auto max-w-7xl px-6 py-8">
-          <Tabs defaultValue="crisis" className="space-y-6">
-            <TabsList className="flex w-full h-auto gap-1 overflow-x-auto md:grid md:grid-cols-8 scrollbar-thin">
-              <TabsTrigger value="crisis" className="flex-shrink-0 md:flex-shrink">The Crisis</TabsTrigger>
-              <TabsTrigger value="storm" className="flex-shrink-0 md:flex-shrink">Impact</TabsTrigger>
-              <TabsTrigger value="solution" className="flex-shrink-0 md:flex-shrink">The Solution</TabsTrigger>
-              <TabsTrigger value="mandates" className="flex-shrink-0 md:flex-shrink">Mandates</TabsTrigger>
-              <TabsTrigger value="discovery" className="flex-shrink-0 md:flex-shrink">Discovery</TabsTrigger>
-              <TabsTrigger value="competition" className="flex-shrink-0 md:flex-shrink">Why We Win</TabsTrigger>
-              <TabsTrigger value="business" className="flex-shrink-0 md:flex-shrink">Market Opportunity</TabsTrigger>
-              <TabsTrigger value="funding" className="flex-shrink-0 md:flex-shrink">The Vision</TabsTrigger>
-            </TabsList>
+    <div className="min-h-screen bg-white">
+      <BrandHeader />
+      <main className="mx-auto max-w-7xl px-6 py-8">
+        <Tabs defaultValue="crisis" className="space-y-6">
+          <TabsList className="flex w-full h-auto gap-1 overflow-x-auto md:grid md:grid-cols-9 scrollbar-thin">
+            <TabsTrigger value="crisis" className="flex-shrink-0 md:flex-shrink">The Crisis</TabsTrigger>
+            <TabsTrigger value="storm" className="flex-shrink-0 md:flex-shrink">Impact</TabsTrigger>
+            <TabsTrigger value="solution" className="flex-shrink-0 md:flex-shrink">The Solution</TabsTrigger>
+            <TabsTrigger value="mandates" className="flex-shrink-0 md:flex-shrink">Mandates</TabsTrigger>
+            <TabsTrigger value="discovery" className="flex-shrink-0 md:flex-shrink">Discovery</TabsTrigger>
+            <TabsTrigger value="competition" className="flex-shrink-0 md:flex-shrink">Why We Win</TabsTrigger>
+            <TabsTrigger value="business" className="flex-shrink-0 md:flex-shrink">Market Opportunity</TabsTrigger>
+            <TabsTrigger value="traction" className="flex-shrink-0 md:flex-shrink">Traction</TabsTrigger>
+            <TabsTrigger value="funding" className="flex-shrink-0 md:flex-shrink">The Vision</TabsTrigger>
+          </TabsList>
 
-            <TabsContent value="crisis"><TheCrisis /></TabsContent>
-            <TabsContent value="storm"><PerfectStorm /></TabsContent>
-            <TabsContent value="solution"><TheSolution /></TabsContent>
-            <TabsContent value="mandates"><TheMandates /></TabsContent>
-            <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
-            <TabsContent value="competition"><WhyWeWin /></TabsContent>
-            <TabsContent value="business"><BusinessAndTraction /></TabsContent>
-            <TabsContent value="funding"><TheAsk /></TabsContent>
-          </Tabs>
+          <TabsContent value="crisis"><TheCrisis /></TabsContent>
+          <TabsContent value="storm"><PerfectStorm /></TabsContent>
+          <TabsContent value="solution"><TheSolution /></TabsContent>
+          <TabsContent value="mandates"><TheMandates /></TabsContent>
+          <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
+          <TabsContent value="competition"><WhyWeWin /></TabsContent>
+          <TabsContent value="business"><BusinessAndTraction /></TabsContent>
+          <TabsContent value="traction"><TractionAndFinancials /></TabsContent>
+          <TabsContent value="funding"><TheAsk /></TabsContent>
+        </Tabs>
 
-          <footer className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-xs text-slate-600 print:hidden">
-            <span>© {new Date().getFullYear()} 4StudentLives. Private investor materials. Confidential.</span>
-            <span>Designed for impact • Built for scale</span>
-          </footer>
-        </main>
-      </div>
-    </SplashIntro>
+        <footer className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-xs text-slate-600 print:hidden">
+          <span>© {new Date().getFullYear()} 4StudentLives. Private investor materials. Confidential.</span>
+          <span>Designed for impact • Built for scale</span>
+        </footer>
+      </main>
+    </div>
   );
 }
