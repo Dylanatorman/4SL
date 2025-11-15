@@ -44,6 +44,7 @@ import {
   revenueTrajectoryData,
   revenueMixData,
   profitabilityPathData,
+  cashFlowData,
   fiscalYearSummary
 } from "@/lib/financial-data";
 
@@ -1935,8 +1936,8 @@ const TheAsk: React.FC = () => {
   );
 };
 
-// Tab 9: Traction & Financials
-const TractionAndFinancials: React.FC = () => {
+// Tab 9A: Market Traction
+const MarketTraction: React.FC = () => {
   const tractionContent = (content as any).traction;
 
   return (
@@ -2077,6 +2078,85 @@ const TractionAndFinancials: React.FC = () => {
         </CardContent>
       </Card>
 
+      {/* Unit Economics */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Unit Economics</CardTitle>
+          <CardDescription className="text-[#05092B]">Capital-efficient growth with strong fundamentals</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {tractionContent.unitEconomics.map((econ: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#05092B]/5 to-[#007097]/5 hover:shadow-xl transition-all duration-300"
+              >
+                <div className="text-3xl mb-2">{econ.icon}</div>
+                <p className="text-sm font-medium text-[#05092B]/60">{econ.label}</p>
+                <p className="mt-2 text-3xl font-bold text-[#05092B]">{econ.value}</p>
+                <p className="mt-1 text-sm font-semibold text-[#007097]">{econ.highlight}</p>
+                <p className="mt-2 text-xs text-[#05092B]">{econ.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Key Milestones Timeline */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Key Milestones</CardTitle>
+          <CardDescription className="text-[#05092B]">18-month runway to sustained profitability</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="space-y-4">
+            {tractionContent.milestones.map((milestone: any, idx: number) => (
+              <motion.div
+                key={idx}
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className={`flex items-start gap-4 p-4 rounded-lg ${
+                  milestone.status === 'completed' ? 'bg-green-50 border-l-4 border-green-600' :
+                  milestone.highlight ? 'bg-[#FCC169]/20 border-l-4 border-[#FCC169]' :
+                  'bg-gray-50 border-l-4 border-gray-300'
+                }`}
+              >
+                <div className="flex-shrink-0">
+                  {milestone.status === 'completed' ? (
+                    <CheckCircle2 className="h-6 w-6 text-green-600" />
+                  ) : (
+                    <Clock className="h-6 w-6 text-[#007097]" />
+                  )}
+                </div>
+                <div className="flex-grow">
+                  <div className="flex items-center gap-2">
+                    <h4 className="font-semibold text-[#05092B]">{milestone.label}</h4>
+                    {milestone.month > 0 && (
+                      <span className="text-xs text-[#05092B]/60">(Month {milestone.month})</span>
+                    )}
+                  </div>
+                  <p className="text-sm font-semibold text-[#007097] mt-1">{milestone.metric}</p>
+                  <p className="text-sm text-[#05092B]/60 mt-1">{milestone.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+// Tab 9B: Financial Model
+const FinancialModel: React.FC = () => {
+  const tractionContent = (content as any).traction;
+
+  return (
+    <div className="space-y-8">
       {/* 36-Month Projections */}
       <Card>
         <CardHeader>
@@ -2174,6 +2254,41 @@ const TractionAndFinancials: React.FC = () => {
         </CardContent>
       </Card>
 
+      {/* NEW: Operational Cashflow Chart */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Cash Runway</CardTitle>
+          <CardDescription className="text-[#05092B]">
+            Ending cash balance over 36 months
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={cashFlowData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+              <CartesianGrid strokeDasharray="3 3" vertical={true} />
+              <XAxis
+                dataKey="month"
+                angle={-45}
+                textAnchor="end"
+                height={80}
+                interval={0}
+                tick={{ fontSize: 11 }}
+              />
+              <YAxis
+                label={{ value: 'Cash Balance ($)', angle: -90, position: 'insideLeft', dx: -10, dy: 75 }}
+                tick={{ fontSize: 11 }}
+                tickFormatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
+              />
+              <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+              <Bar dataKey="endingCash" name="Ending Cash Balance" fill="#007097" />
+            </BarChart>
+          </ResponsiveContainer>
+          <p className="mt-3 text-xs text-[#05092B]">
+            Monthly ending cash balance showing runway trajectory
+          </p>
+        </CardContent>
+      </Card>
+
       {/* Revenue Mix Evolution */}
       <Card>
         <CardHeader>
@@ -2203,76 +2318,6 @@ const TractionAndFinancials: React.FC = () => {
             The decrease from June to July reflects the fiscal year reset, where Year 1's accumulated new customer revenue transitions
             to renewal revenue in Year 2, demonstrating the platform's strong retention and recurring revenue model.
           </p>
-        </CardContent>
-      </Card>
-
-      {/* Unit Economics */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Unit Economics</CardTitle>
-          <CardDescription className="text-[#05092B]">Capital-efficient growth with strong fundamentals</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {tractionContent.unitEconomics.map((econ: any, idx: number) => (
-              <motion.div
-                key={idx}
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: idx * 0.1 }}
-                className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#05092B]/5 to-[#007097]/5 hover:shadow-xl transition-all duration-300"
-              >
-                <div className="text-3xl mb-2">{econ.icon}</div>
-                <p className="text-sm font-medium text-[#05092B]/60">{econ.label}</p>
-                <p className="mt-2 text-3xl font-bold text-[#05092B]">{econ.value}</p>
-                <p className="mt-1 text-sm font-semibold text-[#007097]">{econ.highlight}</p>
-                <p className="mt-2 text-xs text-[#05092B]">{econ.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Key Milestones Timeline */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Key Milestones</CardTitle>
-          <CardDescription className="text-[#05092B]">18-month runway to sustained profitability</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            {tractionContent.milestones.map((milestone: any, idx: number) => (
-              <motion.div
-                key={idx}
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ delay: idx * 0.1 }}
-                className={`flex items-start gap-4 p-4 rounded-lg ${
-                  milestone.status === 'completed' ? 'bg-green-50 border-l-4 border-green-600' :
-                  milestone.highlight ? 'bg-[#FCC169]/20 border-l-4 border-[#FCC169]' :
-                  'bg-gray-50 border-l-4 border-gray-300'
-                }`}
-              >
-                <div className="flex-shrink-0">
-                  {milestone.status === 'completed' ? (
-                    <CheckCircle2 className="h-6 w-6 text-green-600" />
-                  ) : (
-                    <Clock className="h-6 w-6 text-[#007097]" />
-                  )}
-                </div>
-                <div className="flex-grow">
-                  <div className="flex items-center gap-2">
-                    <h4 className="font-semibold text-[#05092B]">{milestone.label}</h4>
-                    {milestone.month > 0 && (
-                      <span className="text-xs text-[#05092B]/60">(Month {milestone.month})</span>
-                    )}
-                  </div>
-                  <p className="text-sm font-semibold text-[#007097] mt-1">{milestone.metric}</p>
-                  <p className="text-sm text-[#05092B]/60 mt-1">{milestone.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </CardContent>
       </Card>
 
@@ -2359,7 +2404,7 @@ export default function VCBriefPage() {
       <BrandHeader />
       <main className="mx-auto max-w-7xl px-6 py-8">
         <Tabs defaultValue="crisis" className="space-y-6">
-          <TabsList className="flex w-full h-auto gap-1 overflow-x-auto md:grid md:grid-cols-9 scrollbar-thin">
+          <TabsList className="flex w-full h-auto gap-1 overflow-x-auto md:grid md:grid-cols-10 scrollbar-thin">
             <TabsTrigger value="crisis" className="flex-shrink-0 md:flex-shrink">The Crisis</TabsTrigger>
             <TabsTrigger value="storm" className="flex-shrink-0 md:flex-shrink">Impact</TabsTrigger>
             <TabsTrigger value="solution" className="flex-shrink-0 md:flex-shrink">The Solution</TabsTrigger>
@@ -2367,7 +2412,8 @@ export default function VCBriefPage() {
             <TabsTrigger value="discovery" className="flex-shrink-0 md:flex-shrink">Discovery</TabsTrigger>
             <TabsTrigger value="competition" className="flex-shrink-0 md:flex-shrink">Why We Win</TabsTrigger>
             <TabsTrigger value="business" className="flex-shrink-0 md:flex-shrink">Market Opportunity</TabsTrigger>
-            <TabsTrigger value="traction" className="flex-shrink-0 md:flex-shrink">Traction</TabsTrigger>
+            <TabsTrigger value="market-traction" className="flex-shrink-0 md:flex-shrink">Market Traction</TabsTrigger>
+            <TabsTrigger value="financial-model" className="flex-shrink-0 md:flex-shrink">Financial Model</TabsTrigger>
             <TabsTrigger value="funding" className="flex-shrink-0 md:flex-shrink">The Vision</TabsTrigger>
           </TabsList>
 
@@ -2378,7 +2424,8 @@ export default function VCBriefPage() {
           <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
           <TabsContent value="competition"><WhyWeWin /></TabsContent>
           <TabsContent value="business"><BusinessAndTraction /></TabsContent>
-          <TabsContent value="traction"><TractionAndFinancials /></TabsContent>
+          <TabsContent value="market-traction"><MarketTraction /></TabsContent>
+          <TabsContent value="financial-model"><FinancialModel /></TabsContent>
           <TabsContent value="funding"><TheAsk /></TabsContent>
         </Tabs>
 

@@ -169,6 +169,47 @@ export const profitabilityPathData = [
   { month: 'Oct 28', netIncome: 798995, monthNumber: 36 },
 ];
 
+// Operational Cash Flow Data (Monthly cash flow changes)
+// Calculated from revenueTrajectoryData endingCash deltas
+export const cashFlowData = [
+  { month: 'Nov 25', cashFlow: -21317, endingCash: 821683, monthNumber: 1 },
+  { month: 'Dec 25', cashFlow: -2961, endingCash: 818722, monthNumber: 2 },
+  { month: 'Jan 26', cashFlow: 56348, endingCash: 875070, monthNumber: 3 },
+  { month: 'Feb 26', cashFlow: 46686, endingCash: 921756, monthNumber: 4 },
+  { month: 'Mar 26', cashFlow: 5619, endingCash: 927375, monthNumber: 5 },
+  { month: 'Apr 26', cashFlow: -4716, endingCash: 922659, monthNumber: 6 },
+  { month: 'May 26', cashFlow: -6901, endingCash: 915758, monthNumber: 7 },
+  { month: 'Jun 26', cashFlow: -19837, endingCash: 895921, monthNumber: 8 },
+  { month: 'Jul 26', cashFlow: 715697, endingCash: 1611618, monthNumber: 9 },
+  { month: 'Aug 26', cashFlow: 20589, endingCash: 1632207, monthNumber: 10 },
+  { month: 'Sep 26', cashFlow: 12690, endingCash: 1644897, monthNumber: 11 },
+  { month: 'Oct 26', cashFlow: -28123, endingCash: 1616774, monthNumber: 12 },
+  { month: 'Nov 26', cashFlow: -46228, endingCash: 1570546, monthNumber: 13 },
+  { month: 'Dec 26', cashFlow: -54011, endingCash: 1516535, monthNumber: 14 },
+  { month: 'Jan 27', cashFlow: -83510, endingCash: 1433025, monthNumber: 15 },
+  { month: 'Feb 27', cashFlow: -117033, endingCash: 1315992, monthNumber: 16 },
+  { month: 'Mar 27', cashFlow: -143777, endingCash: 1172215, monthNumber: 17 },
+  { month: 'Apr 27', cashFlow: -161290, endingCash: 1010925, monthNumber: 18 },
+  { month: 'May 27', cashFlow: -198964, endingCash: 811961, monthNumber: 19 },
+  { month: 'Jun 27', cashFlow: -223276, endingCash: 588685, monthNumber: 20 },
+  { month: 'Jul 27', cashFlow: 3530417, endingCash: 4119102, monthNumber: 21 },
+  { month: 'Aug 27', cashFlow: 4459, endingCash: 4123561, monthNumber: 22 },
+  { month: 'Sep 27', cashFlow: 20298, endingCash: 4143859, monthNumber: 23 },
+  { month: 'Oct 27', cashFlow: 52340, endingCash: 4196199, monthNumber: 24 },
+  { month: 'Nov 27', cashFlow: 82969, endingCash: 4279168, monthNumber: 25 },
+  { month: 'Dec 27', cashFlow: 46581, endingCash: 4325749, monthNumber: 26 },
+  { month: 'Jan 28', cashFlow: 43329, endingCash: 4369078, monthNumber: 27 },
+  { month: 'Feb 28', cashFlow: 95662, endingCash: 4464740, monthNumber: 28 },
+  { month: 'Mar 28', cashFlow: 137349, endingCash: 4602089, monthNumber: 29 },
+  { month: 'Apr 28', cashFlow: 185231, endingCash: 4787320, monthNumber: 30 },
+  { month: 'May 28', cashFlow: 231695, endingCash: 5019015, monthNumber: 31 },
+  { month: 'Jun 28', cashFlow: -1615771, endingCash: 3403244, monthNumber: 32 },
+  { month: 'Jul 28', cashFlow: 9226134, endingCash: 12629378, monthNumber: 33 },
+  { month: 'Aug 28', cashFlow: 338510, endingCash: 12967888, monthNumber: 34 },
+  { month: 'Sep 28', cashFlow: 310493, endingCash: 13278381, monthNumber: 35 },
+  { month: 'Oct 28', cashFlow: 283002, endingCash: 13561383, monthNumber: 36 },
+];
+
 // Key Milestones
 export const keyMilestones = [
   {
