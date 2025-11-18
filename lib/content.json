@@ -481,6 +481,194 @@
     "executionSpeed": "Our engineering and implementation cadence allows rapid configuration to state-specific workflows and policy changes without custom rebuilds.",
     "coreStrength": "Execution speed is core to meeting the state mandates and beating competitors to market."
   },
+  "traction": {
+    "title": "Traction & Financials",
+    "subtitle": "From $0 to $120K ARR in 90 Days",
+    "heroStats": {
+      "month1": {
+        "label": "Month 1",
+        "mrr": "$20K",
+        "contracts": 2,
+        "growth": null
+      },
+      "month2": {
+        "label": "Month 2",
+        "mrr": "$40K",
+        "contracts": 3,
+        "growth": "+100%"
+      },
+      "month3": {
+        "label": "Month 3",
+        "mrr": "$60K",
+        "contracts": 4,
+        "growth": "+50%"
+      }
+    },
+    "keyMetrics": [
+      {
+        "label": "Total ARR",
+        "value": "$120,000",
+        "description": "Achieved in 90 days from launch",
+        "trend": "up"
+      },
+      {
+        "label": "Contract Velocity",
+        "value": "2 → 4/month",
+        "description": "Accelerating deal flow",
+        "trend": "up"
+      },
+      {
+        "label": "Avg Contract Value",
+        "value": "$15-20K",
+        "description": "Enterprise-grade pricing",
+        "trend": "neutral"
+      },
+      {
+        "label": "MoM Growth",
+        "value": "75%",
+        "description": "Average monthly growth rate",
+        "trend": "up"
+      }
+    ],
+    "projections": {
+      "year1": {
+        "label": "FY 2025-2026",
+        "revenue": "$371K",
+        "contracts": 33,
+        "customers": 28,
+        "grossMargin": "99%"
+      },
+      "year2": {
+        "label": "FY 2026-2027",
+        "revenue": "$2.6M",
+        "growth": "+603%",
+        "contracts": 139,
+        "customers": 155,
+        "grossMargin": "92.7%"
+      },
+      "year3": {
+        "label": "FY 2027-2028",
+        "revenue": "$7.5M",
+        "growth": "+186%",
+        "contracts": 279,
+        "customers": 412,
+        "grossMargin": "92.0%",
+        "netMargin": "37.7%"
+      }
+    },
+    "unitEconomics": [
+      {
+        "label": "Gross Margin",
+        "value": "92-99%",
+        "icon": "💎",
+        "highlight": "Premium",
+        "description": "Exceptional capital efficiency"
+      },
+      {
+        "label": "CAC Payback",
+        "value": "< 6 months",
+        "icon": "⚡",
+        "highlight": "Fast ROI",
+        "description": "Onboarding fees offset acquisition costs"
+      },
+      {
+        "label": "Customer LTV",
+        "value": "$150K+",
+        "icon": "📈",
+        "highlight": "Growing",
+        "description": "Multi-year renewals + AI upsells"
+      },
+      {
+        "label": "Churn Rate",
+        "value": "< 10%",
+        "icon": "🔒",
+        "highlight": "Sticky",
+        "description": "Mandate-driven retention"
+      }
+    ],
+    "milestones": [
+      {
+        "month": 0,
+        "label": "Launch",
+        "metric": "$120K ARR",
+        "description": "Current proven traction",
+        "status": "completed"
+      },
+      {
+        "month": 8,
+        "label": "Year 1 End",
+        "metric": "$371K revenue",
+        "description": "28 active customers",
+        "status": "upcoming"
+      },
+      {
+        "month": 18,
+        "label": "First Profit",
+        "metric": "Positive net income",
+        "description": "April 2027",
+        "status": "upcoming",
+        "highlight": true
+      },
+      {
+        "month": 20,
+        "label": "Breakeven",
+        "metric": "$48K monthly profit",
+        "description": "Sustained profitability",
+        "status": "upcoming",
+        "highlight": true
+      },
+      {
+        "month": 24,
+        "label": "$1M ARR",
+        "metric": "$2.6M annual revenue",
+        "description": "155 customers",
+        "status": "upcoming"
+      },
+      {
+        "month": 36,
+        "label": "Scale",
+        "metric": "$7.5M revenue",
+        "description": "64% net margin, 412 customers",
+        "status": "upcoming",
+        "highlight": true
+      }
+    ],
+    "investment": {
+      "round": "Pre-Seed",
+      "amount": "$750,000",
+      "runway": "18 months to profitability",
+      "useOfFunds": [
+        {
+          "category": "Sales & Marketing",
+          "percentage": 45,
+          "description": "Scale AE team, expand partnerships"
+        },
+        {
+          "category": "R&D",
+          "percentage": 30,
+          "description": "AI features, platform enhancements"
+        },
+        {
+          "category": "G&A",
+          "percentage": 15,
+          "description": "Operations, compliance (SOC 2)"
+        },
+        {
+          "category": "Customer Success",
+          "percentage": 10,
+          "description": "Account management team"
+        }
+      ],
+      "whyNow": [
+        "Proven traction ($120K ARR in 90 days)",
+        "Massive TAM ($2.4B+ addressable market)",
+        "Mandate-driven demand (11+ states, July 2027 CA deadline)",
+        "Capital efficient (92%+ gross margins)",
+        "Clear path to profitability (Month 20)",
+        "Defensible moat (compliance expertise + first-mover)"
+      ]
+    }
+  },
   "funding": {
     "vision": "To become the national backbone of school safety and accountability",
     "mission": "To ensure no missed signal costs lives, no student concern goes unseen, and no district is left unprotected",
