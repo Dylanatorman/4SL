@@ -590,7 +590,7 @@
       {
         "month": 0,
         "label": "Launch",
-        "metric": "$120K ARR",
+        "metric": "$105.5K ARR",
         "description": "Current proven traction",
         "status": "completed"
       },
@@ -610,14 +610,6 @@
         "highlight": true
       },
       {
-        "month": 20,
-        "label": "Breakeven",
-        "metric": "$48K monthly profit",
-        "description": "Sustained profitability",
-        "status": "upcoming",
-        "highlight": true
-      },
-      {
         "month": 24,
         "label": "$1M ARR",
         "metric": "$2.6M annual revenue",
@@ -627,7 +619,7 @@
       {
         "month": 36,
         "label": "Scale",
-        "metric": "$7.5M revenue",
+        "metric": "$7.5M ARR",
         "description": "64% net margin, 412 customers",
         "status": "upcoming",
         "highlight": true
@@ -660,8 +652,8 @@
         }
       ],
       "whyNow": [
-        "Proven traction ($120K ARR in 90 days)",
-        "Massive TAM ($2.4B+ addressable market)",
+        "Proven traction ($105.5K ARR)",
+        "Massive TAM ($3.1B+ addressable market)",
         "Mandate-driven demand (11+ states, July 2027 CA deadline)",
         "Capital efficient (92%+ gross margins)",
         "Clear path to profitability (Month 20)",

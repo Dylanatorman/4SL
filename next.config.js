@@ -5,6 +5,10 @@ const nextConfig = {
     unoptimized: true,
   },
   trailingSlash: true,
+  experimental: {
+    esmExternals: 'loose',
+  },
+  transpilePackages: ['@react-pdf/renderer'],
 }
 
 module.exports = nextConfig

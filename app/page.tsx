@@ -1437,504 +1437,9 @@ const WhyWeWin: React.FC = () => {
   );
 };
 
-// Tab 7: Business & Traction
-const BusinessAndTraction: React.FC = () => {
-  const businessContent = (content as any).business;
-  const teamContent = (content as any).team;
+// Tab 7: Business & Traction (REMOVED/MERGED)
+// Content merged into MarketTraction
 
-  return (
-    <div className="space-y-8">
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#05092B] to-[#1A3859] p-12 text-white shadow-2xl"
-      >
-        <div className="relative z-10">
-          <h2 className="text-5xl font-bold">{businessContent.title}</h2>
-          <p className="mt-4 text-2xl text-white/90">{businessContent.subtitle}</p>
-        </div>
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
-      </motion.div>
-
-      {/* Market Size */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          <Card className="h-full border-t-4 border-t-[#FCC169]">
-            <CardHeader>
-              <CardTitle className="text-xl text-[#05092B] flex items-center gap-2">
-                <Building2 className="h-5 w-5 text-[#FCC169]" />
-                Total Market
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <p className="text-5xl font-bold text-[#05092B]">{businessContent.marketSize.totalSchools.toLocaleString()}+</p>
-                <p className="text-sm text-[#05092B] mt-1">{businessContent.marketSize.description}</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-[#05092B]">{businessContent.marketSize.opportunity}</p>
-                <p className="text-sm text-[#05092B] mt-1">{businessContent.marketSize.opportunityDescription}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <Card className="h-full border-t-4 border-t-[#FCC169]">
-            <CardHeader>
-              <CardTitle className="text-xl text-[#05092B] flex items-center gap-2">
-                <Target className="h-5 w-5 text-[#FCC169]" />
-                Mandated Market
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div>
-                <p className="text-5xl font-bold text-[#05092B]">{businessContent.mandatedMarket.states}</p>
-                <p className="text-sm text-[#05092B] mt-1">States with mandates</p>
-              </div>
-              <div>
-                <p className="text-4xl font-bold text-[#05092B]">{businessContent.mandatedMarket.estimatedSchools.toLocaleString()}+</p>
-                <p className="text-sm text-[#05092B] mt-1">Schools in mandate states</p>
-              </div>
-              <p className="text-sm text-[#05092B] font-semibold">{businessContent.mandatedMarket.trend}</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-
-      {/* Current Traction */}
-      <Card className="border-t-4 border-t-[#FCC169]">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Current Traction</CardTitle>
-          <CardDescription className="text-[#05092B]">Proven demand and active pipeline</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1 }}
-              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
-            >
-              <p className="text-sm font-medium text-[#05092B]">Districts</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">{businessContent.traction.districts}</p>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.15 }}
-              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
-            >
-              <p className="text-sm font-medium text-[#05092B]">Students Served</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">{businessContent.traction.studentsServed}</p>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
-            >
-              <p className="text-sm font-medium text-[#05092B]">States Served</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">{businessContent.traction.statesServed}</p>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.25 }}
-              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
-            >
-              <p className="text-sm font-medium text-[#05092B]">Pipeline</p>
-              <p className="mt-2 text-base font-semibold text-[#05092B]">{businessContent.traction.pipeline}</p>
-            </motion.div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Revenue Model */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <Card className="border-l-4 border-l-[#FCC169]">
-          <CardHeader>
-            <CardTitle className="text-xl text-[#05092B]">Revenue Model</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-[#FCC169] mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-[#05092B]">{businessContent.revenueModel.type}</p>
-                <p className="text-xs text-[#05092B] mt-1">{businessContent.revenueModel.pricing}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-[#FCC169] mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-[#05092B]">Enterprise Scalability</p>
-                <p className="text-xs text-[#05092B] mt-1">{businessContent.revenueModel.scalability}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-[#FCC169] mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-[#05092B]">State-Level Capability</p>
-                <p className="text-xs text-[#05092B] mt-1">{businessContent.revenueModel.capability}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        <Card className="border-l-4 border-l-[#FCC169]">
-          <CardHeader>
-            <CardTitle className="text-xl text-[#05092B]">Retention</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-3">
-            <div className="flex items-start gap-3">
-              <Shield className="h-5 w-5 flex-shrink-0 text-[#FCC169] mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-[#05092B]">Compliance-Driven</p>
-                <p className="text-xs text-[#05092B] mt-1">{businessContent.retention.driver}</p>
-              </div>
-            </div>
-            <div className="flex items-start gap-3">
-              <TrendingUp className="h-5 w-5 flex-shrink-0 text-[#FCC169] mt-0.5" />
-              <div>
-                <p className="text-sm font-semibold text-[#05092B]">Expected High Retention</p>
-                <p className="text-xs text-[#05092B] mt-1">{businessContent.retention.expectation}</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* Why Now */}
-      <Card className="border-t-4 border-t-[#FCC169]">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Why Now</CardTitle>
-          <CardDescription className="text-[#05092B]">5 converging drivers creating urgent demand</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {businessContent.whyNow.map((reason: string, idx: number) => (
-              <motion.div
-                key={idx}
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ delay: idx * 0.08 }}
-                className="flex gap-3 rounded-lg bg-slate-50 p-4"
-              >
-                <Zap className="h-5 w-5 flex-shrink-0 text-[#FCC169]" />
-                <span className="text-sm text-[#05092B]">{reason}</span>
-              </motion.div>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Team */}
-      <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B] flex items-center gap-2">
-            <Users className="h-6 w-6 text-[#FCC169]" />
-            Our Team
-          </CardTitle>
-          <CardDescription className="text-[#05092B]">Execution speed is our competitive advantage</CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-[#05092B] leading-relaxed">{teamContent.description}</p>
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-lg border-l-4 border-l-[#FCC169] bg-white p-4">
-              <h4 className="text-sm font-semibold text-[#05092B] mb-2">Engineering Agility</h4>
-              <p className="text-sm text-[#05092B]">{teamContent.executionSpeed}</p>
-            </div>
-            <div className="rounded-lg border-l-4 border-l-[#FCC169] bg-white p-4">
-              <h4 className="text-sm font-semibold text-[#05092B] mb-2">Core Strength</h4>
-              <p className="text-sm text-[#05092B]">{teamContent.coreStrength}</p>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Market Outlook */}
-      <Card className="border-l-4 border-l-[#FCC169] bg-white">
-        <CardContent className="pt-6">
-          <h3 className="text-2xl font-bold text-[#05092B] mb-4">Market Outlook</h3>
-          <p className="text-lg text-[#05092B] leading-relaxed">
-            {businessContent.outlook}
-          </p>
-        </CardContent>
-      </Card>
-
-      {/* Sources */}
-      <Card className="bg-slate-50">
-        <CardHeader>
-          <CardTitle className="text-sm flex items-center gap-2">
-            <FileText className="h-4 w-4" />
-            Sources & Citations
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-xs text-slate-600">
-            <li>
-              <strong>National Center for Education Statistics (NCES)</strong> -{' '}
-              <a href="https://nces.ed.gov/programs/digest/d23/tables/dt23_214.10.asp" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
-                https://nces.ed.gov/programs/digest/d23/tables/dt23_214.10.asp
-              </a>
-              {' '}- Approximately 13,500 public school districts in the United States
-            </li>
-            <li>
-              <strong>EdTech Market Analysis Reports</strong> -{' '}
-              <em>School safety and compliance technology market sizing</em>
-            </li>
-            <li>
-              <strong>California SB 1241 Fiscal Impact Analysis</strong> -{' '}
-              <a href="https://leginfo.legislature.ca.gov" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
-                https://leginfo.legislature.ca.gov
-              </a>
-            </li>
-            <li>
-              <strong>State Mandate Coverage Analysis</strong> -{' '}
-              <em>Based on documented state legislation and school count data</em>
-            </li>
-          </ul>
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
-
-// Tab 8: The Ask
-const TheAsk: React.FC = () => {
-  const fundingContent = (content as any).funding;
-
-  // Prepare data for use of funds pie chart
-  const useOfFundsData = fundingContent.useOfFunds.map((item: any) => ({
-    name: item.category,
-    value: item.percentage,
-    description: item.description,
-  }));
-
-  return (
-    <div className="space-y-8">
-      {/* Hero Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#05092B] to-[#1A3859] p-12 text-white shadow-2xl"
-      >
-        <div className="relative z-10">
-          <h2 className="text-6xl font-bold mb-6">The Vision</h2>
-          <p className="text-3xl font-semibold text-white/90 mb-4">{fundingContent.vision}</p>
-          <p className="text-xl text-white/80">{fundingContent.mission}</p>
-        </div>
-        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
-      </motion.div>
-
-      {/* The Opportunity */}
-      <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">The Opportunity Before Us</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.1 }}
-              className="flex flex-col gap-2 rounded-lg border-l-4 border-l-[#FCC169] bg-white p-4"
-            >
-              <p className="text-xs font-medium text-[#05092B]">Current</p>
-              <p className="text-3xl font-bold text-[#05092B]">{fundingContent.opportunity.current}</p>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.15 }}
-              className="flex flex-col gap-2 rounded-lg border-l-4 border-l-[#FCC169] bg-white p-4"
-            >
-              <p className="text-xs font-medium text-[#05092B]">Trend</p>
-              <p className="text-base font-semibold text-[#05092B]">{fundingContent.opportunity.trend}</p>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.2 }}
-              className="flex flex-col gap-2 rounded-lg border-l-4 border-l-[#FCC169] bg-white p-4"
-            >
-              <p className="text-xs font-medium text-[#05092B]">Future</p>
-              <p className="text-base font-semibold text-[#05092B]">{fundingContent.opportunity.future}</p>
-            </motion.div>
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.25 }}
-              className="flex flex-col gap-2 rounded-lg border-l-4 border-l-[#FCC169] bg-white p-4"
-            >
-              <p className="text-xs font-medium text-[#05092B]">Advantage</p>
-              <p className="text-base font-semibold text-[#05092B]">{fundingContent.opportunity.advantage}</p>
-            </motion.div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Use of Funds */}
-      <Card className="border-t-4 border-t-[#FCC169]">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Use of Investment Funds</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="grid gap-8 lg:grid-cols-2">
-            {/* Pie Chart */}
-            <div className="flex items-center justify-center">
-              <ResponsiveContainer width="100%" height={300}>
-                <PieChart>
-                  <Pie
-                    data={useOfFundsData}
-                    cx="50%"
-                    cy="50%"
-                    labelLine={false}
-                    label={({ name, value }) => `${value}%`}
-                    outerRadius={100}
-                    fill="#8884d8"
-                    dataKey="value"
-                  >
-                    {useOfFundsData.map((entry: any, index: number) => (
-                      <Cell key={`cell-${index}`} fill={CHART_COLORS[index % CHART_COLORS.length]} />
-                    ))}
-                  </Pie>
-                  <Tooltip formatter={(value: number) => `${value}%`} />
-                  <Legend />
-                </PieChart>
-              </ResponsiveContainer>
-            </div>
-
-            {/* Breakdown */}
-            <div className="space-y-4">
-              {fundingContent.useOfFunds.map((item: any, idx: number) => (
-                <motion.div
-                  key={idx}
-                  initial={{ scale: 0.95, opacity: 0 }}
-                  animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="rounded-lg border-l-4 border-l-[#FCC169] bg-slate-50 p-4"
-                >
-                  <div className="flex items-baseline justify-between mb-2">
-                    <h4 className="font-semibold text-[#05092B]">{item.category}</h4>
-                    <span className="text-2xl font-bold text-[#FCC169]">{item.percentage}%</span>
-                  </div>
-                  <p className="text-sm text-[#05092B]">{item.description}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Moral AND Financial Impact */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          <Card className="h-full border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
-            <CardHeader>
-              <CardTitle className="text-xl text-[#05092B] flex items-center gap-2">
-                <Users className="h-5 w-5 text-[#FCC169]" />
-                Moral Impact
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-semibold text-[#05092B]">{fundingContent.moralAndFinancial.moral}</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        <motion.div
-          initial={{ scale: 0.95, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          <Card className="h-full border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
-            <CardHeader>
-              <CardTitle className="text-xl text-[#05092B] flex items-center gap-2">
-                <Shield className="h-5 w-5 text-[#FCC169]" />
-                Financial Impact
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-lg font-semibold text-[#05092B]">{fundingContent.moralAndFinancial.financial}</p>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </div>
-
-      {/* Call to Action */}
-      <Card className="border-l-4 border-l-[#FCC169] bg-gradient-to-br from-[#05092B] to-[#1A3859] text-white">
-        <CardContent className="pt-6">
-          <div className="text-center space-y-6 py-8">
-            <h3 className="text-4xl font-bold">Join Us</h3>
-            <p className="text-xl text-white/90 max-w-3xl mx-auto">
-              Help us build the national backbone of school safety and accountability.
-              Together, we can ensure no warning sign is missed and no district is left unprotected.
-            </p>
-            <div className="flex items-center justify-center gap-6 pt-4">
-              <div className="text-center">
-                <p className="text-sm text-white/70">Investment Opportunity</p>
-                <p className="text-2xl font-bold text-[#FCC169] mt-1">Open</p>
-              </div>
-              <Separator orientation="vertical" className="h-12 bg-white/30" />
-              <div className="text-center">
-                <p className="text-sm text-white/70">Timing</p>
-                <p className="text-2xl font-bold text-[#FCC169] mt-1">Critical</p>
-              </div>
-              <Separator orientation="vertical" className="h-12 bg-white/30" />
-              <div className="text-center">
-                <p className="text-sm text-white/70">Impact</p>
-                <p className="text-2xl font-bold text-[#FCC169] mt-1">National</p>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Sources */}
-      <Card className="bg-slate-50">
-        <CardHeader>
-          <CardTitle className="text-sm flex items-center gap-2">
-            <FileText className="h-4 w-4" />
-            Sources & Citations
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ul className="space-y-2 text-xs text-slate-600">
-            <li>
-              <strong>Market Size Analysis</strong> -{' '}
-              <em>Based on NCES data, state mandate analysis, and EdTech market reports</em>
-            </li>
-            <li>
-              <strong>Compliance Landscape Data</strong> -{' '}
-              <em>State legislation analysis and timeline from 11 mandate states</em>
-            </li>
-            <li>
-              <strong>California SB 1241 (SAFE Act)</strong> -{' '}
-              <a href="https://leginfo.legislature.ca.gov" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
-                https://leginfo.legislature.ca.gov
-              </a>
-              {' '}- July 2027 deadline driving urgency
-            </li>
-          </ul>
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
 
 // Tab 9A: Market Traction
 const MarketTraction: React.FC = () => {
@@ -1958,34 +1463,34 @@ const MarketTraction: React.FC = () => {
       {/* Current Traction Section */}
       <Card className="mb-8">
         <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Current Traction - First 90 Days</CardTitle>
+          <CardTitle className="text-2xl text-[#05092B]">Current Traction</CardTitle>
           <CardDescription className="text-[#05092B]">Demonstrating rapid growth and strong early market validation</CardDescription>
         </CardHeader>
         <CardContent className="space-y-6">
-          {/* Recent Momentum - 3 Month MRR Cards */}
-          <div className="grid gap-6 sm:grid-cols-3">
+          {/* Recent Momentum - 4 Month MRR Cards */}
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.1 }}
-              className="rounded-xl shadow-lg p-8 bg-white border-2 border-[#05092B]/10 hover:shadow-xl transition-all duration-300"
+              className="rounded-xl shadow-lg p-6 bg-white border-2 border-[#05092B]/10 hover:shadow-xl transition-all duration-300"
             >
-              <p className="text-sm font-medium text-[#05092B]/60">{tractionContent.heroStats.month1.label}</p>
-              <p className="mt-2 text-5xl font-bold text-[#05092B]">{tractionContent.heroStats.month1.mrr}</p>
-              <p className="mt-2 text-sm text-[#05092B]">{tractionContent.heroStats.month1.contracts} contracts</p>
+              <p className="text-sm font-medium text-[#05092B]/60">September 2025</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$12,000</p>
+              <p className="mt-2 text-sm text-[#05092B]">1 contract</p>
             </motion.div>
 
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="rounded-xl shadow-lg p-8 bg-gradient-to-br from-[#FCC169] to-[#FCC169]/80 hover:shadow-xl transition-all duration-300"
+              className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#FCC169]/20 to-[#FCC169]/10 hover:shadow-xl transition-all duration-300 border border-[#FCC169]/30"
             >
-              <p className="text-sm font-medium text-[#05092B]/80">{tractionContent.heroStats.month2.label}</p>
-              <p className="mt-2 text-5xl font-bold text-[#05092B]">{tractionContent.heroStats.month2.mrr}</p>
-              <p className="mt-1 text-sm text-[#05092B]">{tractionContent.heroStats.month2.contracts} contracts</p>
+              <p className="text-sm font-medium text-[#05092B]/80">October 2025</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$25,000</p>
+              <p className="mt-1 text-sm text-[#05092B]">1 contract</p>
               <div className="mt-2 inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
-                {tractionContent.heroStats.month2.growth} MoM
+                +108% MoM
               </div>
             </motion.div>
 
@@ -1993,22 +1498,135 @@ const MarketTraction: React.FC = () => {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="rounded-xl shadow-lg p-8 bg-gradient-to-br from-[#007097] to-[#007097]/80 text-white hover:shadow-xl transition-all duration-300"
+              className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#FCC169] to-[#FCC169]/80 hover:shadow-xl transition-all duration-300"
             >
-              <p className="text-sm font-medium text-white/80">{tractionContent.heroStats.month3.label}</p>
-              <p className="mt-2 text-5xl font-bold">{tractionContent.heroStats.month3.mrr}</p>
-              <p className="mt-1 text-sm">{tractionContent.heroStats.month3.contracts} contracts</p>
+              <p className="text-sm font-medium text-[#05092B]">November 2025</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$20,500</p>
+              <p className="mt-1 text-sm text-[#05092B]">1 contract</p>
+              <div className="mt-2 inline-block rounded-full bg-[#05092B]/10 px-3 py-1 text-xs font-semibold text-[#05092B]">
+                -18% MoM
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#007097] to-[#007097]/80 text-white hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-white/80">December 2025</p>
+              <p className="mt-2 text-4xl font-bold">$48,000</p>
+              <p className="mt-1 text-sm">2 contracts</p>
               <div className="mt-2 inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold">
-                {tractionContent.heroStats.month3.growth} MoM
+                +134% MoM
               </div>
             </motion.div>
           </div>
 
           {/* Key Metrics Grid */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {tractionContent.keyMetrics.map((metric: any, idx: number) => (
-              <StatCard key={idx} {...metric} delay={idx * 0.1} />
-            ))}
+            <StatCard label="Total ARR" value="$105,500" description="Achieved in 4 months" trend="up" delay={0.1} />
+            <StatCard label="Contract Velocity" value="1 → 2 / month" description="Accelerating deal flow" trend="up" delay={0.2} />
+            <StatCard label="Avg Contract Value" value="$21,100" description="Enterprise-grade pricing" trend="neutral" delay={0.3} />
+            <StatCard label="Avg MoM Growth" value="75%" description="Average monthly growth rate" trend="up" delay={0.4} />
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Merged Market Opportunity Section */}
+      <div className="grid gap-6 md:grid-cols-2">
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.1 }}
+        >
+          <Card className="h-full border-t-4 border-t-[#FCC169]">
+            <CardHeader>
+              <CardTitle className="text-xl text-[#05092B] flex items-center gap-2">
+                <Building2 className="h-5 w-5 text-[#FCC169]" />
+                Total Addressable Market (TAM)
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <p className="text-5xl font-bold text-[#05092B]">{(content as any).business.marketSize.totalSchools.toLocaleString()}+</p>
+                <p className="text-sm text-[#05092B] mt-1">{(content as any).business.marketSize.description}</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-[#05092B]">{(content as any).business.marketSize.opportunity}</p>
+                <p className="text-sm text-[#05092B] mt-1">{(content as any).business.marketSize.opportunityDescription}</p>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.2 }}
+        >
+          <Card className="h-full border-t-4 border-t-[#FCC169]">
+            <CardHeader>
+              <CardTitle className="text-xl text-[#05092B] flex items-center gap-2">
+                <Target className="h-5 w-5 text-[#FCC169]" />
+                Mandated Market
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <p className="text-5xl font-bold text-[#05092B]">{(content as any).business.mandatedMarket.states}</p>
+                <p className="text-sm text-[#05092B] mt-1">States with mandates</p>
+              </div>
+              <div>
+                <p className="text-4xl font-bold text-[#05092B]">{(content as any).business.mandatedMarket.estimatedSchools.toLocaleString()}+</p>
+                <p className="text-sm text-[#05092B] mt-1">Schools in mandate states</p>
+              </div>
+              <p className="text-sm text-[#05092B] font-semibold">{(content as any).business.mandatedMarket.trend}</p>
+            </CardContent>
+          </Card>
+        </motion.div>
+      </div>
+
+      {/* Expanded Traction Tiles */}
+      <Card className="border-t-4 border-t-[#FCC169]">
+        <CardContent className="pt-6">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.4 }}
+              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-[#05092B]">Districts Served</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">29</p>
+            </motion.div>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.45 }}
+              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-[#05092B]">Students Protected</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">56,300</p>
+            </motion.div>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-[#05092B]">Total ARR</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$105,500</p>
+            </motion.div>
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.55 }}
+              className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
+            >
+              <p className="text-sm font-medium text-[#05092B]">States Served</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">2</p>
+            </motion.div>
           </div>
         </CardContent>
       </Card>
@@ -2232,7 +1850,6 @@ const FinancialModel: React.FC = () => {
           <div>
             <h4 className="mb-4 text-lg font-semibold text-[#05092B]">
               Path to Profitability
-              <span className="ml-3 text-sm font-normal text-[#007097]">Breakeven: Month 20 (June 2027)</span>
             </h4>
             <ResponsiveContainer width="100%" height={300}>
               <BarChart data={profitabilityPathData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
@@ -2284,7 +1901,7 @@ const FinancialModel: React.FC = () => {
             </BarChart>
           </ResponsiveContainer>
           <p className="mt-3 text-xs text-[#05092B]">
-            Monthly ending cash balance showing runway trajectory
+            Monthly ending cash balance showing runway trajectory (assuming $750K investment)
           </p>
         </CardContent>
       </Card>
@@ -2402,19 +2019,17 @@ export default function VCBriefPage() {
   return (
     <div className="min-h-screen bg-white">
       <BrandHeader />
-      <main className="mx-auto max-w-7xl px-6 py-8">
+      <main className="mx-auto max-w-7xl px-6 py-8 portrait-compact">
         <Tabs defaultValue="crisis" className="space-y-6">
-          <TabsList className="grid grid-cols-5 grid-rows-2 w-full h-auto gap-2">
+          <TabsList className="grid grid-cols-4 grid-rows-2 w-full h-auto gap-2 portrait-tabs">
             <TabsTrigger value="crisis">The Crisis</TabsTrigger>
             <TabsTrigger value="storm">Impact</TabsTrigger>
             <TabsTrigger value="solution">The Solution</TabsTrigger>
             <TabsTrigger value="mandates">Mandates</TabsTrigger>
             <TabsTrigger value="discovery">Discovery</TabsTrigger>
             <TabsTrigger value="competition">Why We Win</TabsTrigger>
-            <TabsTrigger value="business">Market Opportunity</TabsTrigger>
             <TabsTrigger value="market-traction">Market Traction</TabsTrigger>
             <TabsTrigger value="financial-model">Financial Model</TabsTrigger>
-            <TabsTrigger value="funding">The Vision</TabsTrigger>
           </TabsList>
 
           <TabsContent value="crisis"><TheCrisis /></TabsContent>
@@ -2423,10 +2038,8 @@ export default function VCBriefPage() {
           <TabsContent value="mandates"><TheMandates /></TabsContent>
           <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
           <TabsContent value="competition"><WhyWeWin /></TabsContent>
-          <TabsContent value="business"><BusinessAndTraction /></TabsContent>
           <TabsContent value="market-traction"><MarketTraction /></TabsContent>
           <TabsContent value="financial-model"><FinancialModel /></TabsContent>
-          <TabsContent value="funding"><TheAsk /></TabsContent>
         </Tabs>
 
         <footer className="mt-12 flex items-center justify-between border-t border-slate-200 pt-6 text-xs text-slate-600 print:hidden">
