@@ -1525,10 +1525,10 @@ const MarketTraction: React.FC = () => {
 
           {/* Key Metrics Grid */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <StatCard label="Total ARR" value="$105,500" description="Achieved in 4 months" trend="up" delay={0.1} />
-            <StatCard label="Contract Velocity" value="1 → 2 / month" description="Accelerating deal flow" trend="up" delay={0.2} />
-            <StatCard label="Avg Contract Value" value="$21,100" description="Enterprise-grade pricing" trend="neutral" delay={0.3} />
-            <StatCard label="Avg MoM Growth" value="75%" description="Average monthly growth rate" trend="up" delay={0.4} />
+            <StatCard label="Total ARR" value="$105,500" description="Achieved in 4 months" trend="up" />
+            <StatCard label="Contract Velocity" value="1 → 2 / month" description="Accelerating deal flow" trend="up" />
+            <StatCard label="Avg Contract Value" value="$21,100" description="Enterprise-grade pricing" trend="neutral" />
+            <StatCard label="Avg MoM Growth" value="75%" description="Average monthly growth rate" trend="up" />
           </div>
         </CardContent>
       </Card>
