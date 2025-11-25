@@ -239,95 +239,57 @@ const TheProblem: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* Why Threat & Risk Assessments Matter */}
-      <Card className="border-l-4 border-l-[#FCC169] bg-gradient-to-br from-white to-slate-50">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B] flex items-center gap-2">
-            <Shield className="h-6 w-6 text-[#FCC169]" />
-            Why Threat & Risk Assessments Matter
-          </CardTitle>
-        </CardHeader>
+      {/* The Common Thread - Enhanced */}
+      <Card className="border-l-4 border-l-[#FCC169] bg-white">
         <CardContent className="pt-6">
-          <div className="space-y-4">
-            <p className="text-lg text-[#05092B] leading-relaxed">
-              <strong>Students rarely "snap."</strong> They show warning signs. Threat and risk assessments catch them before harm happens—these tools save lives by identifying kids in crisis early.
-            </p>
-            <p className="text-lg text-[#05092B] leading-relaxed">
-              Schools are <strong>legally and ethically obligated</strong> to intervene before escalation. When districts miss warning signs, the consequences are catastrophic—for students, families, and the district itself.
-            </p>
-            <p className="text-lg font-semibold text-[#1A3859]">
-              {crisisContent.commonThread.result}
-            </p>
-          </div>
+          <h3 className="text-2xl font-bold text-[#05092B] mb-4">
+            {crisisContent.commonThread.title}
+          </h3>
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            {crisisContent.commonThread.description}
+          </p>
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            <strong>Students rarely "snap."</strong> They show warning signs. Threat and risk assessments catch them before harm happens—these tools save lives by identifying kids in crisis early. Schools are <strong>legally and ethically obligated</strong> to intervene before escalation. When districts miss warning signs, the consequences are catastrophic—for students, families, and the district itself.
+          </p>
+          <p className="text-lg font-semibold text-[#1A3859]">
+            {crisisContent.commonThread.result}
+          </p>
         </CardContent>
       </Card>
 
-      {/* How Schools Are Doing It Today */}
+      {/* The Broken System */}
       <Card className="border-t-4 border-t-[#FCC169] bg-white">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">How Schools Are Doing It Today</CardTitle>
-          <CardDescription className="text-[#05092B]">The broken system that's failing students</CardDescription>
-        </CardHeader>
         <CardContent className="pt-6">
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="space-y-3">
-              <div className="flex gap-3">
-                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
-                <p className="text-[#05092B]"><strong>Paper-based documentation:</strong> Threat assessments are documented on paper and locked in filing cabinets.</p>
-              </div>
-              <div className="flex gap-3">
-                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
-                <p className="text-[#05092B]"><strong>Scattered information:</strong> Critical data is lost or tied to individuals who leave.</p>
-              </div>
-              <div className="flex gap-3">
-                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
-                <p className="text-[#05092B]"><strong>Incomplete history:</strong> Teams make life-altering decisions without complete student records.</p>
-              </div>
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            Today, threat assessments are documented on paper and locked in filing cabinets. Critical information is scattered, lost, or tied to individuals who leave. Teams make life-altering decisions without complete student history. There's no data, no analytics, no trend visibility—districts are flying blind.
+          </p>
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            A safety workflow that depends on printing, scanning, and passing papers around is guaranteed to fail when it matters most. This creates a cascade of problems:
+          </p>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 mt-4">
+            <div className="flex gap-2">
+              <span className="text-red-600 font-bold">•</span>
+              <p className="text-[#05092B]">Students fall through cracks because no one sees the full picture</p>
             </div>
-            <div className="space-y-3">
-              <div className="flex gap-3">
-                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
-                <p className="text-[#05092B]"><strong>No visibility:</strong> No data, no analytics, no trend visibility—districts are flying blind.</p>
-              </div>
-              <div className="flex gap-3">
-                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
-                <p className="text-[#05092B]"><strong>Fragile workflow:</strong> A safety process that depends on printing, scanning, and passing papers around is guaranteed to fail when it matters most.</p>
-              </div>
+            <div className="flex gap-2">
+              <span className="text-red-600 font-bold">•</span>
+              <p className="text-[#05092B]">Districts can't track at-risk students over years or across campuses</p>
             </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* The Problems This Creates */}
-      <Card className="bg-red-50/30 border-2 border-red-200/50">
-        <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">The Problems This Creates</CardTitle>
-        </CardHeader>
-        <CardContent className="pt-6">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            <div className="flex gap-3">
-              <span className="text-red-600 font-bold text-xl">•</span>
-              <p className="text-[#05092B]"><strong>Students fall through cracks:</strong> No one sees the full picture.</p>
+            <div className="flex gap-2">
+              <span className="text-red-600 font-bold">•</span>
+              <p className="text-[#05092B]">Leadership has no insight into rising risks or intervention effectiveness</p>
             </div>
-            <div className="flex gap-3">
-              <span className="text-red-600 font-bold text-xl">•</span>
-              <p className="text-[#05092B]"><strong>No tracking:</strong> Districts can't track at-risk students over years or across campuses.</p>
+            <div className="flex gap-2">
+              <span className="text-red-600 font-bold">•</span>
+              <p className="text-[#05092B]">Missing or incomplete documentation exposes districts to extreme liability</p>
             </div>
-            <div className="flex gap-3">
-              <span className="text-red-600 font-bold text-xl">•</span>
-              <p className="text-[#05092B]"><strong>Leadership blind spots:</strong> No insight into rising risks or intervention effectiveness.</p>
+            <div className="flex gap-2">
+              <span className="text-red-600 font-bold">•</span>
+              <p className="text-[#05092B]">Delays and errors happen because paper slows everything down</p>
             </div>
-            <div className="flex gap-3">
-              <span className="text-red-600 font-bold text-xl">•</span>
-              <p className="text-[#05092B]"><strong>Extreme liability:</strong> Missing or incomplete documentation exposes districts to massive legal risk.</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-red-600 font-bold text-xl">•</span>
-              <p className="text-[#05092B]"><strong>Delays and errors:</strong> Paper slows everything down when speed matters most.</p>
-            </div>
-            <div className="flex gap-3">
-              <span className="text-red-600 font-bold text-xl">•</span>
-              <p className="text-[#05092B]"><strong>Lost memory:</strong> When staff turns over, institutional knowledge disappears instantly.</p>
+            <div className="flex gap-2">
+              <span className="text-red-600 font-bold">•</span>
+              <p className="text-[#05092B]">When staff turns over, institutional memory disappears instantly</p>
             </div>
           </div>
         </CardContent>
@@ -807,6 +769,59 @@ const TheSolution: React.FC = () => {
           </motion.div>
         ))}
       </div>
+
+      {/* What 4StudentLives Delivers */}
+      <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
+        <CardContent className="pt-6">
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            4StudentLives delivers a <strong>centralized, districtwide safety record that never gets lost</strong>. Every team member sees the same case instantly through real-time collaboration. Automated workflows eliminate missed steps and delayed responses.
+          </p>
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            For the first time, districts have <strong>data, analytics, and reporting that provide true visibility</strong> into student safety trends. Secure, compliant digital storage with full audit trails ensures nothing is ever lost. Most importantly, <strong>permanent institutional memory protects students no matter who leaves</strong>—the knowledge stays with the district, not in someone's filing cabinet.
+          </p>
+          <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3 mt-4">
+            <div className="flex gap-2">
+              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+              <p className="text-[#05092B]">Centralized safety records that never get lost</p>
+            </div>
+            <div className="flex gap-2">
+              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+              <p className="text-[#05092B]">Real-time collaboration across all team members</p>
+            </div>
+            <div className="flex gap-2">
+              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+              <p className="text-[#05092B]">Automated workflows that eliminate missed steps</p>
+            </div>
+            <div className="flex gap-2">
+              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+              <p className="text-[#05092B]">Data, analytics, and reporting for district visibility</p>
+            </div>
+            <div className="flex gap-2">
+              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+              <p className="text-[#05092B]">Secure, compliant digital storage with full audit trails</p>
+            </div>
+            <div className="flex gap-2">
+              <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-green-600 mt-0.5" />
+              <p className="text-[#05092B]">Permanent institutional memory that survives staff turnover</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* The Core Value */}
+      <Card className="border-l-4 border-l-[#FCC169] bg-gradient-to-br from-[#FCC169]/10 to-white">
+        <CardContent className="pt-6">
+          <p className="text-xl text-[#05092B] leading-relaxed mb-3">
+            <strong>We replace a broken paper system with a modern, accountable safety platform.</strong>
+          </p>
+          <p className="text-lg text-[#05092B] leading-relaxed mb-3">
+            We give districts the visibility and speed needed to prevent tragedies. We ensure <strong>no student in crisis ever gets lost in a filing cabinet again</strong>.
+          </p>
+          <p className="text-lg font-semibold text-[#1A3859]">
+            This is the transformation that saves lives and protects districts.
+          </p>
+        </CardContent>
+      </Card>
 
       {/* Sources */}
       <Card className="bg-slate-50">
