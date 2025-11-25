@@ -239,33 +239,97 @@ const TheProblem: React.FC = () => {
         </CardContent>
       </Card>
 
-      {/* The Common Thread */}
-      <Card className="border-l-4 border-l-[#FCC169] bg-white">
+      {/* Why Threat & Risk Assessments Matter */}
+      <Card className="border-l-4 border-l-[#FCC169] bg-gradient-to-br from-white to-slate-50">
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B] flex items-center gap-2">
+            <Shield className="h-6 w-6 text-[#FCC169]" />
+            Why Threat & Risk Assessments Matter
+          </CardTitle>
+        </CardHeader>
         <CardContent className="pt-6">
-          <h3 className="text-2xl font-bold text-[#05092B] mb-4">
-            {crisisContent.commonThread.title}
-          </h3>
-          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
-            {crisisContent.commonThread.description}
-          </p>
-          <p className="text-lg font-semibold text-[#1A3859]">
-            {crisisContent.commonThread.result}
-          </p>
+          <div className="space-y-4">
+            <p className="text-lg text-[#05092B] leading-relaxed">
+              <strong>Students rarely "snap."</strong> They show warning signs. Threat and risk assessments catch them before harm happens—these tools save lives by identifying kids in crisis early.
+            </p>
+            <p className="text-lg text-[#05092B] leading-relaxed">
+              Schools are <strong>legally and ethically obligated</strong> to intervene before escalation. When districts miss warning signs, the consequences are catastrophic—for students, families, and the district itself.
+            </p>
+            <p className="text-lg font-semibold text-[#1A3859]">
+              {crisisContent.commonThread.result}
+            </p>
+          </div>
         </CardContent>
       </Card>
 
-      {/* The Problem We're Solving - NEW SECTION */}
-      <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
+      {/* How Schools Are Doing It Today */}
+      <Card className="border-t-4 border-t-[#FCC169] bg-white">
         <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">The Problem We're Solving</CardTitle>
+          <CardTitle className="text-2xl text-[#05092B]">How Schools Are Doing It Today</CardTitle>
+          <CardDescription className="text-[#05092B]">The broken system that's failing students</CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
-          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
-            Schools are currently using <strong>manual, paper-based processes</strong> for suicide risk and behavioral threat assessments. These outdated systems suffer from <strong>poor documentation and storage</strong>, making it nearly impossible to track patterns, ensure compliance, or create defensible audit trails.
-          </p>
-          <p className="text-lg text-[#05092B] leading-relaxed">
-            <strong>4StudentLives is digitizing this entire process</strong>, replacing fragmented paper forms, isolated emails, and informal meetings with a unified digital platform that ensures no warning sign is missed and every action is properly documented.
-          </p>
+          <div className="grid gap-4 md:grid-cols-2">
+            <div className="space-y-3">
+              <div className="flex gap-3">
+                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
+                <p className="text-[#05092B]"><strong>Paper-based documentation:</strong> Threat assessments are documented on paper and locked in filing cabinets.</p>
+              </div>
+              <div className="flex gap-3">
+                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
+                <p className="text-[#05092B]"><strong>Scattered information:</strong> Critical data is lost or tied to individuals who leave.</p>
+              </div>
+              <div className="flex gap-3">
+                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
+                <p className="text-[#05092B]"><strong>Incomplete history:</strong> Teams make life-altering decisions without complete student records.</p>
+              </div>
+            </div>
+            <div className="space-y-3">
+              <div className="flex gap-3">
+                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
+                <p className="text-[#05092B]"><strong>No visibility:</strong> No data, no analytics, no trend visibility—districts are flying blind.</p>
+              </div>
+              <div className="flex gap-3">
+                <AlertTriangle className="h-5 w-5 flex-shrink-0 text-red-600 mt-0.5" />
+                <p className="text-[#05092B]"><strong>Fragile workflow:</strong> A safety process that depends on printing, scanning, and passing papers around is guaranteed to fail when it matters most.</p>
+              </div>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* The Problems This Creates */}
+      <Card className="bg-red-50/30 border-2 border-red-200/50">
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">The Problems This Creates</CardTitle>
+        </CardHeader>
+        <CardContent className="pt-6">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="flex gap-3">
+              <span className="text-red-600 font-bold text-xl">•</span>
+              <p className="text-[#05092B]"><strong>Students fall through cracks:</strong> No one sees the full picture.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red-600 font-bold text-xl">•</span>
+              <p className="text-[#05092B]"><strong>No tracking:</strong> Districts can't track at-risk students over years or across campuses.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red-600 font-bold text-xl">•</span>
+              <p className="text-[#05092B]"><strong>Leadership blind spots:</strong> No insight into rising risks or intervention effectiveness.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red-600 font-bold text-xl">•</span>
+              <p className="text-[#05092B]"><strong>Extreme liability:</strong> Missing or incomplete documentation exposes districts to massive legal risk.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red-600 font-bold text-xl">•</span>
+              <p className="text-[#05092B]"><strong>Delays and errors:</strong> Paper slows everything down when speed matters most.</p>
+            </div>
+            <div className="flex gap-3">
+              <span className="text-red-600 font-bold text-xl">•</span>
+              <p className="text-[#05092B]"><strong>Lost memory:</strong> When staff turns over, institutional knowledge disappears instantly.</p>
+            </div>
+          </div>
         </CardContent>
       </Card>
 
