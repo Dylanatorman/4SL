@@ -114,9 +114,26 @@ const StatCard: React.FC<{
   </motion.div>
 );
 
-// Tab 1: The Crisis
-const TheCrisis: React.FC = () => {
+// Tab 1: The Problem (Combined Crisis + Impact)
+const TheProblem: React.FC = () => {
   const crisisContent = (content as any).crisis;
+  const stormContent = (content as any).perfectStorm;
+
+  // Lawsuit data for visualization
+  const lawsuitData = [
+    { case: 'Virginia Tech', year: 2007, amount: 11, label: '$11M' },
+    { case: 'Marysville, WA', year: 2014, amount: 18, label: '$18M' },
+    { case: 'Parkland, FL', year: 2018, amount: 152.5, label: '$152.5M' },
+    { case: 'Cleveland v. Taft', year: 2022, amount: 2, label: '$2M' },
+  ];
+
+  // State mandate adoption timeline
+  const mandateTimeline = [
+    { year: 2013, states: 1, label: 'Virginia (First)' },
+    { year: 2018, states: 2, label: 'Florida (Post-Parkland)' },
+    { year: 2020, states: 5, label: '5 States' },
+    { year: 2023, states: 11, label: '11 States' },
+  ];
 
   return (
     <div className="space-y-8">
@@ -237,6 +254,136 @@ const TheCrisis: React.FC = () => {
         </CardContent>
       </Card>
 
+      {/* The Problem We're Solving - NEW SECTION */}
+      <Card className="border-t-4 border-t-[#FCC169] bg-gradient-to-br from-white to-slate-50">
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">The Problem We're Solving</CardTitle>
+        </CardHeader>
+        <CardContent className="pt-6">
+          <p className="text-lg text-[#05092B] leading-relaxed mb-4">
+            Schools are currently using <strong>manual, paper-based processes</strong> for suicide risk and behavioral threat assessments. These outdated systems suffer from <strong>poor documentation and storage</strong>, making it nearly impossible to track patterns, ensure compliance, or create defensible audit trails.
+          </p>
+          <p className="text-lg text-[#05092B] leading-relaxed">
+            <strong>4StudentLives is digitizing this entire process</strong>, replacing fragmented paper forms, isolated emails, and informal meetings with a unified digital platform that ensures no warning sign is missed and every action is properly documented.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* Three Forces Converging */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#05092B] to-[#1A3859] p-12 text-white shadow-2xl"
+      >
+        <div className="relative z-10">
+          <h2 className="text-5xl font-bold">{stormContent.title}</h2>
+          <p className="mt-4 text-2xl text-white/90">{stormContent.subtitle}</p>
+        </div>
+        <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
+      </motion.div>
+
+      {/* Three Forces */}
+      <div className="grid gap-6 lg:grid-cols-3">
+        {stormContent.forces.map((force: any, idx: number) => (
+          <motion.div
+            key={force.id}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ delay: idx * 0.15 }}
+          >
+            <div className="h-full rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-lg bg-white/30">
+                {force.id === 'mental-health' && <Brain className="h-6 w-6 text-[#05092B]" />}
+                {force.id === 'legal-regulatory' && <Shield className="h-6 w-6 text-[#05092B]" />}
+                {force.id === 'financial-liability' && <DollarSign className="h-6 w-6 text-[#05092B]" />}
+              </div>
+              <h3 className="text-xl font-semibold text-[#05092B] mb-2">{force.title}</h3>
+              <p className="text-[#05092B] font-medium mb-4">{force.subtitle}</p>
+              <p className="text-sm text-[#05092B] leading-relaxed mb-4">{force.description}</p>
+              <ul className="space-y-2">
+                {force.keyPoints.map((point: string, pidx: number) => (
+                  <li key={pidx} className="flex gap-2 text-sm text-[#05092B]">
+                    <ChevronRight className="h-4 w-4 flex-shrink-0 text-[#05092B] mt-0.5" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Legal Timeline Visualization */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Mandate Adoption Accelerating</CardTitle>
+          <CardDescription className="text-[#05092B]">From 1 state in 2013 to 11 states by 2023</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={mandateTimeline} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" />
+              <YAxis label={{ value: 'States with Mandates', angle: -90, position: 'insideLeft', offset: -5 }} tick={{ fontSize: 11 }} />
+              <Tooltip />
+              <Bar dataKey="states" fill="#1A3859" name="States" />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {mandateTimeline.map((item, idx) => (
+              <div key={idx} className="rounded-lg bg-slate-50 p-3 text-center">
+                <p className="text-2xl font-bold text-[#05092B]">{item.year}</p>
+                <p className="text-sm text-[#05092B]">{item.label}</p>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Financial Liability Visualization */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="text-2xl text-[#05092B]">Escalating Financial Liability</CardTitle>
+          <CardDescription className="text-[#05092B]">Major settlements for failure to identify and document threats</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={lawsuitData} margin={{ left: 20, right: 10, top: 10, bottom: 10 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="year" />
+              <YAxis label={{ value: 'Settlement ($M)', angle: -90, position: 'insideLeft', offset: -5 }} tick={{ fontSize: 11 }} />
+              <Tooltip formatter={(value: number) => `$${value}M`} />
+              <Bar dataKey="amount" fill="#05092B" name="Settlement Amount" />
+            </BarChart>
+          </ResponsiveContainer>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {lawsuitData.map((lawsuit, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ delay: idx * 0.1 }}
+                className="rounded-xl shadow-lg p-4 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
+              >
+                <p className="text-xs font-medium text-[#05092B]">{lawsuit.case}</p>
+                <p className="mt-1 text-2xl font-bold text-[#05092B]">{lawsuit.label}</p>
+                <p className="mt-1 text-xs text-[#05092B]">{lawsuit.year}</p>
+              </motion.div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* Convergence Statement */}
+      <Card className="border-l-4 border-l-[#FCC169] bg-white">
+        <CardContent className="pt-6">
+          <h3 className="text-2xl font-bold text-[#05092B] mb-4">The Convergence</h3>
+          <p className="text-lg text-[#05092B] leading-relaxed">
+            {stormContent.convergence}
+          </p>
+        </CardContent>
+      </Card>
+
       {/* Sources */}
       <Card className="bg-slate-50">
         <CardHeader>
@@ -249,26 +396,50 @@ const TheCrisis: React.FC = () => {
           <ul className="space-y-2 text-xs text-slate-600">
             <li>
               <strong>CDC Youth Risk Behavior Surveillance System (2023)</strong> -{' '}
-              <a href="https://www.cdc.gov/healthyyouth/data/yrbs/index.htm" target="_blank" rel="noreferrer" className="text-brand-link hover:underline">
+              <a href="https://www.cdc.gov/healthyyouth/data/yrbs/index.htm" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
                 https://www.cdc.gov/healthyyouth/data/yrbs/index.htm
               </a>
             </li>
             <li>
               <strong>CDC NCHS Data Brief 471 (Suicide Rates 2011-2021)</strong> -{' '}
-              <a href="https://www.cdc.gov/nchs/data/databriefs/db471-tables.pdf" target="_blank" rel="noreferrer" className="text-brand-link hover:underline">
+              <a href="https://www.cdc.gov/nchs/data/databriefs/db471-tables.pdf" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
                 https://www.cdc.gov/nchs/data/databriefs/db471-tables.pdf
               </a>
             </li>
             <li>
               <strong>Education Week School Shootings Tracker (2018-2024)</strong> -{' '}
-              <a href="https://www.edweek.org/leadership/school-shootings-this-year-how-many-and-where/2025/01" target="_blank" rel="noreferrer" className="text-brand-link hover:underline">
+              <a href="https://www.edweek.org/leadership/school-shootings-this-year-how-many-and-where/2025/01" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
                 https://www.edweek.org/leadership/school-shootings-this-year-how-many-and-where/2025/01
               </a>
             </li>
             <li>
               <strong>Everytown Research on School Shootings</strong> -{' '}
-              <a href="https://everytownresearch.org" target="_blank" rel="noreferrer" className="text-brand-link hover:underline">
+              <a href="https://everytownresearch.org" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
                 https://everytownresearch.org
+              </a>
+            </li>
+            <li>
+              <strong>Virginia Tech Settlement (2007)</strong> -{' '}
+              <a href="https://www.edweek.org" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                Education Week Legal Analysis
+              </a>
+            </li>
+            <li>
+              <strong>Parkland Settlements ($152.5M Total)</strong> -{' '}
+              <a href="https://www.edweek.org" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                Education Week Coverage
+              </a>
+            </li>
+            <li>
+              <strong>U.S. Department of Homeland Security - School Safety Guidance</strong> -{' '}
+              <a href="https://www.dhs.gov" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://www.dhs.gov
+              </a>
+            </li>
+            <li>
+              <strong>U.S. Secret Service NTAC - Threat Assessment Guidelines</strong> -{' '}
+              <a href="https://www.secretservice.gov/reports" target="_blank" rel="noreferrer" className="text-[#007097] hover:underline">
+                https://www.secretservice.gov/reports
               </a>
             </li>
           </ul>
@@ -278,7 +449,7 @@ const TheCrisis: React.FC = () => {
   );
 };
 
-// Tab 2: Impact
+// Tab 2: Impact (DEPRECATED - Now merged into TheProblem)
 const PerfectStorm: React.FC = () => {
   const stormContent = (content as any).perfectStorm;
 
@@ -645,16 +816,6 @@ const TheMandates: React.FC = () => {
         </div>
         <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
       </motion.div>
-
-      {/* Future Baseline */}
-      <Card className="bg-[#FCC169] shadow-md hover:shadow-lg transition-shadow">
-        <CardContent className="pt-6">
-          <h3 className="text-2xl font-bold text-[#05092B] mb-4">Establishing the Standard</h3>
-          <p className="text-lg text-[#05092B] leading-relaxed">
-            {mandatesContent.trendline}
-          </p>
-        </CardContent>
-      </Card>
 
       {/* 11 States Summary */}
       <Card className="border-t-4 border-t-[#FCC169]">
@@ -1476,7 +1637,7 @@ const MarketTraction: React.FC = () => {
               className="rounded-xl shadow-lg p-6 bg-white border-2 border-[#05092B]/10 hover:shadow-xl transition-all duration-300"
             >
               <p className="text-sm font-medium text-[#05092B]/60">September 2025</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">$12,000</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$12,500</p>
               <p className="mt-2 text-sm text-[#05092B]">1 contract</p>
             </motion.div>
 
@@ -1487,10 +1648,10 @@ const MarketTraction: React.FC = () => {
               className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#FCC169]/20 to-[#FCC169]/10 hover:shadow-xl transition-all duration-300 border border-[#FCC169]/30"
             >
               <p className="text-sm font-medium text-[#05092B]/80">October 2025</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">$25,000</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$20,000</p>
               <p className="mt-1 text-sm text-[#05092B]">1 contract</p>
               <div className="mt-2 inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
-                +108% MoM
+                +60% MoM
               </div>
             </motion.div>
 
@@ -1501,10 +1662,10 @@ const MarketTraction: React.FC = () => {
               className="rounded-xl shadow-lg p-6 bg-gradient-to-br from-[#FCC169] to-[#FCC169]/80 hover:shadow-xl transition-all duration-300"
             >
               <p className="text-sm font-medium text-[#05092B]">November 2025</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">$20,500</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$25,000</p>
               <p className="mt-1 text-sm text-[#05092B]">1 contract</p>
-              <div className="mt-2 inline-block rounded-full bg-[#05092B]/10 px-3 py-1 text-xs font-semibold text-[#05092B]">
-                -18% MoM
+              <div className="mt-2 inline-block rounded-full bg-green-600 px-3 py-1 text-xs font-semibold text-white">
+                +25% MoM
               </div>
             </motion.div>
 
@@ -1525,7 +1686,7 @@ const MarketTraction: React.FC = () => {
 
           {/* Key Metrics Grid */}
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            <StatCard label="Total ARR" value="$105,500" description="Achieved in 4 months" trend="up" />
+            <StatCard label="Total ARR" value="$105,000" description="Achieved in 4 months" trend="up" />
             <StatCard label="Contract Velocity" value="1 → 2 / month" description="Accelerating deal flow" trend="up" />
             <StatCard label="Avg Contract Value" value="$21,100" description="Enterprise-grade pricing" trend="neutral" />
             <StatCard label="Avg MoM Growth" value="75%" description="Average monthly growth rate" trend="up" />
@@ -1616,7 +1777,7 @@ const MarketTraction: React.FC = () => {
               className="rounded-xl shadow-lg p-6 bg-[#FCC169] hover:shadow-xl transition-all duration-300"
             >
               <p className="text-sm font-medium text-[#05092B]">Total ARR</p>
-              <p className="mt-2 text-4xl font-bold text-[#05092B]">$105,500</p>
+              <p className="mt-2 text-4xl font-bold text-[#05092B]">$105,000</p>
             </motion.div>
             <motion.div
               initial={{ scale: 0.9, opacity: 0 }}
@@ -1816,7 +1977,7 @@ const FinancialModel: React.FC = () => {
 
           {/* Revenue Trajectory Chart */}
           <div className="mb-8">
-            <h4 className="mb-4 text-lg font-semibold text-[#05092B]">Revenue Growth (36 Months)</h4>
+            <h4 className="mb-4 text-lg font-semibold text-[#05092B]">Projected Revenue Growth</h4>
             <ResponsiveContainer width="100%" height={450}>
               <LineChart data={revenueTrajectoryData} margin={{ bottom: 60, left: 20, right: 10, top: 10 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={true} />
@@ -1840,7 +2001,7 @@ const FinancialModel: React.FC = () => {
                   stroke="#007097"
                   strokeWidth={3}
                   dot={{ fill: '#007097', r: 3 }}
-                  name="Total Revenue"
+                  name="New Revenue"
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -1874,7 +2035,9 @@ const FinancialModel: React.FC = () => {
       {/* NEW: Operational Cashflow Chart */}
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl text-[#05092B]">Cash Runway</CardTitle>
+          <CardTitle className="text-2xl text-[#05092B]">
+            Cash Runway <span className="text-base font-normal text-[#05092B]/70">(assuming $750K investment)</span>
+          </CardTitle>
           <CardDescription className="text-[#05092B]">
             Ending cash balance over 36 months
           </CardDescription>
@@ -1900,9 +2063,6 @@ const FinancialModel: React.FC = () => {
               <Bar dataKey="endingCash" name="Ending Cash Balance" fill="#007097" />
             </BarChart>
           </ResponsiveContainer>
-          <p className="mt-3 text-xs text-[#05092B]">
-            Monthly ending cash balance showing runway trajectory (assuming $750K investment)
-          </p>
         </CardContent>
       </Card>
 
@@ -2020,20 +2180,18 @@ export default function VCBriefPage() {
     <div className="min-h-screen bg-white">
       <BrandHeader />
       <main className="mx-auto max-w-7xl px-6 py-8 portrait-compact">
-        <Tabs defaultValue="crisis" className="space-y-6">
+        <Tabs defaultValue="problem" className="space-y-6">
           <TabsList className="grid grid-cols-4 grid-rows-2 w-full h-auto gap-2 portrait-tabs">
-            <TabsTrigger value="crisis">The Crisis</TabsTrigger>
-            <TabsTrigger value="storm">Impact</TabsTrigger>
-            <TabsTrigger value="solution">The Solution</TabsTrigger>
+            <TabsTrigger value="problem">The Problem</TabsTrigger>
+            <TabsTrigger value="solution">Our Solution</TabsTrigger>
             <TabsTrigger value="mandates">Mandates</TabsTrigger>
-            <TabsTrigger value="discovery">Discovery</TabsTrigger>
-            <TabsTrigger value="competition">Why We Win</TabsTrigger>
+            <TabsTrigger value="discovery">4SL Market Research</TabsTrigger>
+            <TabsTrigger value="competition">Competitor Analysis</TabsTrigger>
             <TabsTrigger value="market-traction">Market Traction</TabsTrigger>
             <TabsTrigger value="financial-model">Financial Model</TabsTrigger>
           </TabsList>
 
-          <TabsContent value="crisis"><TheCrisis /></TabsContent>
-          <TabsContent value="storm"><PerfectStorm /></TabsContent>
+          <TabsContent value="problem"><TheProblem /></TabsContent>
           <TabsContent value="solution"><TheSolution /></TabsContent>
           <TabsContent value="mandates"><TheMandates /></TabsContent>
           <TabsContent value="discovery"><CaliforniaMomentum /></TabsContent>
