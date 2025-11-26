@@ -2265,8 +2265,7 @@ export default function VCBriefPage() {
             <TabsTrigger value="solution">Our Solution</TabsTrigger>
             <TabsTrigger value="mandates">Mandates</TabsTrigger>
             <TabsTrigger value="discovery">4SL Market Research</TabsTrigger>
-            <div></div>
-            <TabsTrigger value="competition">Competitor Analysis</TabsTrigger>
+            <TabsTrigger value="competition" className="col-start-2">Competitor Analysis</TabsTrigger>
             <TabsTrigger value="market-traction">Market Traction</TabsTrigger>
             <TabsTrigger value="financial-model">Financial Model</TabsTrigger>
           </TabsList>
