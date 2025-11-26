@@ -681,12 +681,10 @@ const TheSolution: React.FC = () => {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#05092B] to-[#1A3859] p-12 text-white shadow-2xl"
+        className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#05092B] to-[#1A3859] p-8 text-white shadow-2xl"
       >
         <div className="relative z-10">
-          <h2 className="text-5xl font-bold">{solutionContent.title}</h2>
-          <p className="mt-4 text-2xl text-white/90">{solutionContent.subtitle}</p>
-          <p className="mt-6 text-lg text-white/80 max-w-4xl leading-relaxed">{solutionContent.overview}</p>
+          <p className="text-lg text-white/80 max-w-4xl leading-relaxed">{solutionContent.overview}</p>
         </div>
         <div className="absolute right-0 top-0 h-full w-1/3 bg-gradient-to-l from-white/5 to-transparent" />
       </motion.div>
@@ -2263,12 +2261,12 @@ export default function VCBriefPage() {
           <TabsList className="grid grid-cols-4 grid-rows-2 w-full h-auto gap-2 portrait-tabs">
             <TabsTrigger value="problem">The Problem</TabsTrigger>
             <TabsTrigger value="solution">Our Solution</TabsTrigger>
-            <TabsTrigger value="mandates">Mandates</TabsTrigger>
+            <TabsTrigger value="mandates">State Mandates</TabsTrigger>
             <TabsTrigger value="discovery">4SL Market Research</TabsTrigger>
             <div className="col-span-4 flex justify-center gap-2">
               <TabsTrigger value="competition" className="w-[calc((100%-0.5rem*3)/4)]">Competitor Analysis</TabsTrigger>
               <TabsTrigger value="market-traction" className="w-[calc((100%-0.5rem*3)/4)]">Market Traction</TabsTrigger>
-              <TabsTrigger value="financial-model" className="w-[calc((100%-0.5rem*3)/4)]">Financial Model</TabsTrigger>
+              <TabsTrigger value="financial-model" className="w-[calc((100%-0.5rem*3)/4)]">Financial Forecast</TabsTrigger>
             </div>
           </TabsList>
 
