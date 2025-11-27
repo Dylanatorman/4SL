@@ -2072,8 +2072,23 @@ const FinancialModel: React.FC = () => {
                   tick={{ fontSize: 11 }}
                 />
                 <Tooltip
-                  formatter={(value: number, name: string) => [`$${value.toLocaleString()}`, name]}
-                  labelFormatter={(label) => label}
+                  content={({ active, payload, label }) => {
+                    if (active && payload && payload.length) {
+                      const data = payload[0].payload;
+                      return (
+                        <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-3">
+                          <p className="font-semibold text-gray-900 mb-2">{label}</p>
+                          <p className="text-sm text-[#007097]">
+                            New Revenue: <span className="font-medium">${data.totalRevenue.toLocaleString()}</span>
+                          </p>
+                          <p className="text-sm text-[#10b981]">
+                            Total Revenue: <span className="font-medium">${data.cumulativeRevenue.toLocaleString()}</span>
+                          </p>
+                        </div>
+                      );
+                    }
+                    return null;
+                  }}
                 />
                 <Line
                   type="monotone"
@@ -2082,15 +2097,6 @@ const FinancialModel: React.FC = () => {
                   strokeWidth={3}
                   dot={{ fill: '#007097', r: 3 }}
                   name="New Revenue"
-                />
-                <Line
-                  type="monotone"
-                  dataKey="cumulativeRevenue"
-                  stroke="#10b981"
-                  strokeWidth={2}
-                  strokeDasharray="5 5"
-                  dot={{ fill: '#10b981', r: 2 }}
-                  name="Total Revenue"
                 />
               </LineChart>
             </ResponsiveContainer>
