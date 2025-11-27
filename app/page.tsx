@@ -2071,7 +2071,10 @@ const FinancialModel: React.FC = () => {
                   tickFormatter={(value: number) => `$${(value / 1000).toFixed(0)}K`}
                   tick={{ fontSize: 11 }}
                 />
-                <Tooltip formatter={(value: number) => `$${value.toLocaleString()}`} />
+                <Tooltip
+                  formatter={(value: number, name: string) => [`$${value.toLocaleString()}`, name]}
+                  labelFormatter={(label) => label}
+                />
                 <Line
                   type="monotone"
                   dataKey="totalRevenue"
@@ -2079,6 +2082,15 @@ const FinancialModel: React.FC = () => {
                   strokeWidth={3}
                   dot={{ fill: '#007097', r: 3 }}
                   name="New Revenue"
+                />
+                <Line
+                  type="monotone"
+                  dataKey="cumulativeRevenue"
+                  stroke="#10b981"
+                  strokeWidth={2}
+                  strokeDasharray="5 5"
+                  dot={{ fill: '#10b981', r: 2 }}
+                  name="Total Revenue"
                 />
               </LineChart>
             </ResponsiveContainer>
